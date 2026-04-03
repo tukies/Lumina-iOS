@@ -431,7 +431,7 @@ function App() {
               <img src={media('lumina-icon.png')} alt="" width="72" height="72" />
               <div>
                 <p className="section-kicker align-left">Privacy by design</p>
-                <h2 className="section-headline align-left">Fast in the room because it stays close to the room.</h2>
+                <h2 className="section-headline align-left">Stays in the room.</h2>
               </div>
             </div>
             <p className="section-body align-left">
