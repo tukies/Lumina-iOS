@@ -223,7 +223,7 @@ function App() {
               </div>
 
               <ul className="proof-strip" aria-label="Product highlights">
-                <li>Real screenshots from the app</li>
+                <li>Spatial room mapping</li>
                 <li>On-device audio analysis</li>
                 <li>Scene saving and room mapping</li>
                 <li>Local-network lighting control</li>
@@ -314,11 +314,11 @@ function App() {
           <div className="section-inner">
             <div className="section-heading">
               <p className="section-kicker">Inside the app</p>
-              <h2 className="section-headline">Every major claim on this page is backed by the product itself.</h2>
+              <h2 className="section-headline">Control, creation, and tuning in one workflow.</h2>
               <p className="section-body">
-                The quickest way to trust a lighting app is to see the interface doing real work. These
-                screens show how Lumina handles room mapping, effect browsing, audio calibration, and
-                high-contrast performance looks.
+                Lumina brings room mapping, effect browsing, audio calibration, and bold performance
+                looks into one interface so building the right atmosphere takes less setup and less
+                guesswork.
               </p>
             </div>
 
