@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Lumina">
+  <defs>
+    <linearGradient id="luminaGradient" x1="10%" y1="10%" x2="90%" y2="90%">
+      <stop offset="0%" stop-color="#ff6d2e" />
+      <stop offset="100%" stop-color="#18c5c7" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="32" fill="#151515" />
+  <path
+    d="M36 26h18v50h36v18H36V26zm54 0h18v68H90V26z"
+    fill="url(#luminaGradient)"
+  />
+</svg>
