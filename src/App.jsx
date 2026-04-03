@@ -2,7 +2,7 @@ import './App.css'
 
 const metrics = [
   { value: '17', label: 'Built-in effects ready to drop into a room' },
-  { value: '36', label: 'Sequentio patterns for rhythm and movement' },
+  { value: '7', label: 'Preset gradients for faster scene building' },
   { value: '4', label: 'Lighting ecosystems supported today' },
   { value: 'Local', label: 'Audio analysis and control stay close to the room' },
 ]
@@ -107,9 +107,9 @@ const featureStories = [
   },
 ]
 
-const modes = [
+const workflowsShowcase = [
   {
-    name: 'Spatial',
+    name: 'Spatial control',
     detail:
       'Build the room by hand with mapped fixtures, visual layering, and direct manipulation across the stage.',
     image: {
@@ -120,24 +120,24 @@ const modes = [
     },
   },
   {
-    name: 'Auto',
+    name: 'Effect library',
     detail:
-      'Let the engine respond to music in real time using energy, BPM, labels, and audio-driven pattern behavior.',
+      'Browse looks visually, drop them into the stage, and move from idea to playback without digging through settings.',
     image: {
-      src: 'spatial-sparkle.jpg',
-      alt: 'Lumina running a colorful sparkle effect that reacts across the room stage.',
-      width: 847,
+      src: 'effects-library.jpg',
+      alt: 'Lumina effect library with multiple visual presets available for quick scene building.',
+      width: 587,
       height: 1200,
     },
   },
   {
-    name: 'Sequentio',
+    name: 'Audio tuning',
     detail:
-      'Shape timing, order, gradients, brightness, overlap, and motion so scenes feel choreographed instead of random.',
+      'Inspect bass, mid, high, BPM, and thresholds so the room responds the way your speakers and space actually behave.',
     image: {
-      src: 'laser-mode.jpg',
-      alt: 'Lumina controlling multiple fixtures with a dramatic crossing laser effect.',
-      width: 587,
+      src: 'audio-calibration.jpg',
+      alt: 'Lumina audio calibration interface showing live analysis data and signal diagnostics.',
+      width: 1083,
       height: 1200,
     },
   },
@@ -166,7 +166,7 @@ const workflow = [
   'Discover and pair supported devices on your local network.',
   'Map them into a room layout and save the setup.',
   'Choose an effect, tune the response, and store the result as a scene.',
-  'Trigger the right mode for ambience, focus, parties, or live sessions.',
+  'Recall the right scene for ambience, focus, parties, or live sessions.',
 ]
 
 function App() {
@@ -186,7 +186,7 @@ function App() {
           <nav className="nav-links" aria-label="Primary">
             <a href="#overview">Overview</a>
             <a href="#features">Features</a>
-            <a href="#modes">Modes</a>
+            <a href="#modes">Workflows</a>
             <a href="#integrations">Integrations</a>
             <a href={privacyHref}>Privacy</a>
           </nav>
@@ -358,17 +358,16 @@ function App() {
         <section className="site-section" id="modes">
           <div className="section-inner">
             <div className="section-heading">
-              <p className="section-kicker">Modes</p>
-              <h2 className="section-headline">One app. Three different ways to command the room.</h2>
+              <p className="section-kicker">Core workflows</p>
+              <h2 className="section-headline">Built for setup, creation, and tuning.</h2>
               <p className="section-body">
-                Lumina is not locked to one workflow. You can design the stage manually, let the engine
-                interpret the music, or push more choreographed timing when you want a stronger sense
-                of progression.
+                The app is strongest when the essentials are fast: map the room, find the right look,
+                and calibrate the response until the lighting feels right in your actual space.
               </p>
             </div>
 
             <div className="mode-grid">
-              {modes.map((mode) => (
+              {workflowsShowcase.map((mode) => (
                 <article className="mode-card" key={mode.name}>
                   <figure className="mode-card-media">
                     <img
