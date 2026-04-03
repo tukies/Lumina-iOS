@@ -180,7 +180,7 @@ function App() {
           <div className="hero-content">
             <div className="hero-copy">
               <p className="hero-brandmark">Lumina</p>
-              <p className="hero-label">Spatial, audio-reactive lighting control for iPhone</p>
+              <p className="hero-label">Spatial, audio-reactive lighting control for iPhone, iPad and Mac</p>
               <h1 className="hero-title">Light the room like it means something.</h1>
               <p className="hero-subtitle">
                 Lumina brings spatial control, audio-reactive motion, and beautifully composed effects
