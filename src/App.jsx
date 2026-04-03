@@ -1,49 +1,49 @@
 import './App.css'
 
 const metrics = [
-  { value: '17', label: 'Built-in effects ready to drop into a room' },
-  { value: '7', label: 'Preset gradients for faster scene building' },
-  { value: '4', label: 'Lighting ecosystems supported today' },
-  { value: 'Local', label: 'Audio analysis and control stay close to the room' },
+  { value: '17', label: 'Signature effects for mood, motion, and contrast' },
+  { value: '7', label: 'Curated gradients for faster scene building' },
+  { value: '4', label: 'Major lighting ecosystems in one app' },
+  { value: 'Local', label: 'Responsive control without sending the room to the cloud' },
 ]
 
 const promiseCards = [
   {
     eyebrow: 'Visual control',
-    title: 'Map fixtures like a stage plot.',
+    title: 'Shape the room like a lighting designer.',
     body:
-      'Place lights in space, adjust endpoints, and see how a scene reads before you send it to the room.',
+      'Place lights in space, refine their movement, and compose a setup that feels intentional from every angle.',
   },
   {
     eyebrow: 'Fast creation',
-    title: 'Build looks from an actual effect library.',
+    title: 'Build looks with speed and taste.',
     body:
-      'Start from gradients, ripples, sparkles, lasers, sweeps, and more instead of rebuilding the same mood every session.',
+      'Start from gradients, ripples, sparkles, lasers, sweeps, and more instead of rebuilding the same atmosphere every time.',
   },
   {
     eyebrow: 'Audio intelligence',
-    title: 'Tune response instead of hoping for good sync.',
+    title: 'Make the room react with precision.',
     body:
-      'Lumina exposes bass, mid, high, beat phase, BPM, and sensitivity so the room reacts with intent.',
+      'Dial in the response to bass, mids, highs, and tempo so motion feels musical rather than random.',
   },
   {
     eyebrow: 'Local-first',
     title: 'Keep the experience immediate.',
     body:
-      'Layouts, scenes, calibration, and device mappings live on your device while lighting commands stay on your network.',
+      'Layouts, scenes, and device settings stay with you while control stays close to the room.',
   },
 ]
 
 const featureStories = [
   {
     eyebrow: 'Spatial stage',
-    title: 'Design the room visually, not bulb by bulb.',
+    title: 'Design the room as one composition.',
     body:
-      'Lumina gives you a spatial canvas for arranging fixtures, testing gradients, and building compositions that make sense in the actual room.',
+      'Lumina gives you a visual stage for arranging fixtures, shaping color, and building a look that reads beautifully in the actual space.',
     points: [
-      'Drag fixtures into place and adjust the line of motion.',
-      'Preview color travel and spatial balance before playback.',
-      'Return to saved layouts instead of setting up every time.',
+      'Arrange fixtures where they actually live in the room.',
+      'Preview color travel and balance before playback.',
+      'Return to saved layouts whenever the setup comes back on.',
     ],
     image: {
       src: 'spatial-rainbow.jpg',
@@ -54,13 +54,13 @@ const featureStories = [
   },
   {
     eyebrow: 'Effect library',
-    title: 'Move from idea to look in seconds.',
+    title: 'Find the right look fast.',
     body:
-      'The built-in library makes the app feel like a creative tool, not a utility. Choose a motion style, drop it into the stage, and iterate fast.',
+      'The effect library feels closer to a creative palette than a control panel, making it easy to move from mood to result without friction.',
     points: [
-      'Browse effects as visual cards, not hidden menu items.',
-      'Mix bold, cinematic looks with subtle ambient motion.',
-      'Keep favorite looks close for repeated sessions or scenes.',
+      'Browse effects visually instead of hunting through menus.',
+      'Mix bold performance looks with subtle ambient motion.',
+      'Keep favorite looks close for repeat sessions and scenes.',
     ],
     image: {
       src: 'effects-library.jpg',
@@ -72,13 +72,13 @@ const featureStories = [
   },
   {
     eyebrow: 'Audio calibration',
-    title: 'See what the engine hears.',
+    title: 'Tune the response to your space.',
     body:
-      'Real-time diagnostics turn audio reactivity into something you can tune. That means less guesswork and more reliable response across different speakers and rooms.',
+      'Real-time diagnostics make audio-reactive lighting feel deliberate, with less guesswork and more consistency across speakers, rooms, and listening levels.',
     points: [
-      'Inspect live bass, mid, high, BPM, and energy values.',
-      'Calibrate thresholds to match your room and playback level.',
-      'Debug reaction quality before you commit to a scene.',
+      'Watch bass, mids, highs, BPM, and energy in real time.',
+      'Match thresholds to your room and playback level.',
+      'Refine responsiveness before a scene becomes a favorite.',
     ],
     image: {
       src: 'audio-calibration.jpg',
@@ -89,13 +89,13 @@ const featureStories = [
   },
   {
     eyebrow: 'Performance looks',
-    title: 'Built for movement, contrast, and punch.',
+    title: 'Made for atmosphere with presence.',
     body:
-      'From lasers to sparkles to ripples, Lumina is aimed at setups that should feel alive on camera and in person, whether you are building ambience or a mini light show.',
+      'From lasers to sparkles to ripples, Lumina is built for setups that should feel alive on camera and in person, from quiet ambience to full-energy moments.',
     points: [
-      'Create high-contrast looks that read clearly in dark rooms.',
-      'Use audio-reactive motion for parties, desks, bedrooms, or studio sessions.',
-      'Switch looks quickly without leaving the main control surface.',
+      'Create high-contrast looks that hold up in darker rooms.',
+      'Use motion that feels expressive at a desk, in a bedroom, or at a party.',
+      'Move between moods quickly without breaking the flow.',
     ],
     image: {
       src: 'laser-mode.jpg',
@@ -111,7 +111,7 @@ const workflowsShowcase = [
   {
     name: 'Spatial control',
     detail:
-      'Build the room by hand with mapped fixtures, visual layering, and direct manipulation across the stage.',
+      'Map the room by hand with visual placement, layered motion, and direct control across the stage.',
     image: {
       src: 'spatial-ripple.jpg',
       alt: 'Lumina spatial mode with a ripple effect centered in the room map.',
@@ -122,7 +122,7 @@ const workflowsShowcase = [
   {
     name: 'Effect library',
     detail:
-      'Browse looks visually, drop them into the stage, and move from idea to playback without digging through settings.',
+      'Browse looks visually, place them into the room, and move from idea to playback without digging through settings.',
     image: {
       src: 'effects-library.jpg',
       alt: 'Lumina effect library with multiple visual presets available for quick scene building.',
@@ -133,7 +133,7 @@ const workflowsShowcase = [
   {
     name: 'Audio tuning',
     detail:
-      'Inspect bass, mid, high, BPM, and thresholds so the room responds the way your speakers and space actually behave.',
+      'Refine bass, mids, highs, BPM, and thresholds so the room responds the way your setup actually sounds.',
     image: {
       src: 'audio-calibration.jpg',
       alt: 'Lumina audio calibration interface showing live analysis data and signal diagnostics.',
@@ -146,27 +146,27 @@ const workflowsShowcase = [
 const integrations = [
   {
     name: 'WLED',
-    body: 'Drive strips, segments, and pixel-heavy setups with room-aware control instead of one-off commands.',
+    body: 'Control strips, segments, and pixel-heavy installations with a workflow that feels designed for bigger setups.',
   },
   {
     name: 'Philips Hue Entertainment',
-    body: 'Work with entertainment areas when you want Hue hardware to behave more like a performance rig.',
+    body: 'Bring Hue entertainment areas into a more expressive, performance-minded control surface.',
   },
   {
     name: 'Nanoleaf',
-    body: 'Bring panel layouts into the same creative workflow as strips, lamps, and fixture groups.',
+    body: 'Bring panel layouts into the same visual language as strips, lamps, and grouped fixtures.',
   },
   {
     name: 'LIFX',
-    body: 'Control LAN-capable bulbs and fixtures locally so changes feel immediate in the room.',
+    body: 'Control LAN-capable bulbs and fixtures with changes that feel instant in the room.',
   },
 ]
 
 const workflow = [
-  'Discover and pair supported devices on your local network.',
-  'Map them into a room layout and save the setup.',
-  'Choose an effect, tune the response, and store the result as a scene.',
-  'Recall the right scene for ambience, focus, parties, or live sessions.',
+  'Connect supported devices across your local network.',
+  'Arrange them into a room layout you can return to anytime.',
+  'Choose a look, refine the response, and save the result as a scene.',
+  'Recall the right atmosphere for focus, hosting, or late-night listening.',
 ]
 
 function App() {
@@ -205,12 +205,12 @@ function App() {
                 </div>
               </div>
 
-              <p className="section-kicker">Smart lighting that feels like a live instrument.</p>
-              <h1 className="hero-title">Turn your room into a reactive light show.</h1>
+              <p className="section-kicker">Lighting control for rooms with taste.</p>
+              <h1 className="hero-title">Make your space feel alive.</h1>
               <p className="hero-subtitle">
-                Lumina maps your lights in space, layers bold visual effects, and listens to music in
-                real time so WLED, Philips Hue Entertainment, Nanoleaf, and LIFX setups feel fast,
-                immersive, and intentional.
+                Lumina brings spatial control, audio-reactive motion, and beautifully composed effects
+                into one iPhone app, so your WLED, Hue, Nanoleaf, and LIFX setup feels immersive,
+                polished, and effortless to use.
               </p>
 
               <div className="cta-row">
@@ -225,7 +225,7 @@ function App() {
               <ul className="proof-strip" aria-label="Product highlights">
                 <li>Spatial room mapping</li>
                 <li>On-device audio analysis</li>
-                <li>Scene saving and room mapping</li>
+                <li>Saved scenes</li>
                 <li>Local-network lighting control</li>
               </ul>
             </div>
@@ -266,11 +266,11 @@ function App() {
               </figure>
 
               <aside className="hero-callout">
-                <span className="callout-label">Built for real setups</span>
-                <strong>Map the room once. Reuse it every session.</strong>
+                <span className="callout-label">Designed for repeat use</span>
+                <strong>Set the room once. Keep the magic.</strong>
                 <p>
-                  Save scenes, reuse layouts, and tune the audio engine instead of fighting the same
-                  settings every time you want the room to look right.
+                  Save layouts, keep favorite scenes, and come back to a setup that already knows how
+                  your space should feel.
                 </p>
               </aside>
             </div>
@@ -281,11 +281,10 @@ function App() {
           <div className="section-inner">
             <div className="section-heading">
               <p className="section-kicker">Why Lumina</p>
-              <h2 className="section-headline">Built for people who want more than presets and a color wheel.</h2>
+              <h2 className="section-headline">For people who care how a room feels.</h2>
               <p className="section-body">
-                Most smart-light apps stop at simple color changes. Lumina is designed for bedrooms,
-                desks, studios, and parties where lighting should feel composed, reactive, and worth
-                looking at.
+                Most smart-light apps stop at utility. Lumina is built for bedrooms, desks, studios,
+                and social spaces where lighting should feel cinematic, responsive, and considered.
               </p>
             </div>
 
@@ -314,11 +313,10 @@ function App() {
           <div className="section-inner">
             <div className="section-heading">
               <p className="section-kicker">Inside the app</p>
-              <h2 className="section-headline">Control, creation, and tuning in one workflow.</h2>
+              <h2 className="section-headline">A creative workflow, not a pile of settings.</h2>
               <p className="section-body">
-                Lumina brings room mapping, effect browsing, audio calibration, and bold performance
-                looks into one interface so building the right atmosphere takes less setup and less
-                guesswork.
+                From room mapping to effect selection to audio tuning, Lumina keeps the process fluid
+                so shaping the atmosphere feels quick, visual, and satisfying.
               </p>
             </div>
 
@@ -359,10 +357,10 @@ function App() {
           <div className="section-inner">
             <div className="section-heading">
               <p className="section-kicker">Core workflows</p>
-              <h2 className="section-headline">Built for setup, creation, and tuning.</h2>
+              <h2 className="section-headline">Everything you need to shape the mood.</h2>
               <p className="section-body">
-                The app is strongest when the essentials are fast: map the room, find the right look,
-                and calibrate the response until the lighting feels right in your actual space.
+                Lumina keeps the essentials close at hand, from mapping the room to finding the right
+                look to dialing in the response until the space feels exactly right.
               </p>
             </div>
 
@@ -393,10 +391,10 @@ function App() {
           <div className="section-inner split-layout">
             <article className="panel-card">
               <p className="section-kicker align-left">Creative workflow</p>
-              <h2 className="section-headline align-left">A tighter loop from pairing to playback.</h2>
+              <h2 className="section-headline align-left">A smooth path from setup to atmosphere.</h2>
               <p className="section-body align-left">
-                Lumina is strongest when it shortens the distance between an idea and a room-filling
-                result. The workflow is built around setup once, tune quickly, and reuse often.
+                Lumina is at its best when the distance between an idea and a finished room is short.
+                Set up once, refine quickly, and return to the looks you love.
               </p>
               <ol className="workflow-list">
                 {workflow.map((step) => (
@@ -407,10 +405,10 @@ function App() {
 
             <article className="panel-card">
               <p className="section-kicker align-left">Compatibility</p>
-              <h2 className="section-headline align-left">Designed for mixed ecosystems.</h2>
+              <h2 className="section-headline align-left">One control surface for the whole room.</h2>
               <p className="section-body align-left">
-                If your room uses more than one brand, Lumina brings them into one control surface so
-                the lighting behaves like a single setup instead of four separate apps.
+                If your setup spans more than one brand, Lumina brings everything into one place so the
+                room behaves like a single experience instead of a stack of separate apps.
               </p>
               <div className="integration-grid">
                 {integrations.map((integration) => (
@@ -434,9 +432,9 @@ function App() {
               </div>
             </div>
             <p className="section-body align-left">
-              Lumina stores layouts, scenes, gradients, calibration, and device mappings locally.
-              Microphone analysis happens on device. Commands stay on your network. That keeps the app
-              responsive while giving you a clearer privacy story than cloud-heavy smart-home tools.
+              Layouts, scenes, gradients, and device mappings stay local. Audio analysis happens on
+              device. Commands stay on your network. The result is a setup that feels faster, cleaner,
+              and more private by default.
             </p>
             <div className="cta-row">
               <a className="primary-button" href={privacyHref}>
