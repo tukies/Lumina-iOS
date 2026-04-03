@@ -1,280 +1,449 @@
 import './App.css'
 
-const stats = [
-  { value: '17', label: 'Built-in effects' },
-  { value: '36', label: 'Sequentio patterns' },
-  { value: '7', label: 'Preset gradients' },
-  { value: '4', label: 'Hardware ecosystems' },
+const metrics = [
+  { value: '17', label: 'Built-in effects ready to drop into a room' },
+  { value: '36', label: 'Sequentio patterns for rhythm and movement' },
+  { value: '4', label: 'Lighting ecosystems supported today' },
+  { value: 'Local', label: 'Audio analysis and control stay close to the room' },
 ]
 
-const modeCards = [
+const promiseCards = [
+  {
+    eyebrow: 'Visual control',
+    title: 'Map fixtures like a stage plot.',
+    body:
+      'Place lights in space, adjust endpoints, and see how a scene reads before you send it to the room.',
+  },
+  {
+    eyebrow: 'Fast creation',
+    title: 'Build looks from an actual effect library.',
+    body:
+      'Start from gradients, ripples, sparkles, lasers, sweeps, and more instead of rebuilding the same mood every session.',
+  },
+  {
+    eyebrow: 'Audio intelligence',
+    title: 'Tune response instead of hoping for good sync.',
+    body:
+      'Lumina exposes bass, mid, high, beat phase, BPM, and sensitivity so the room reacts with intent.',
+  },
+  {
+    eyebrow: 'Local-first',
+    title: 'Keep the experience immediate.',
+    body:
+      'Layouts, scenes, calibration, and device mappings live on your device while lighting commands stay on your network.',
+  },
+]
+
+const featureStories = [
+  {
+    eyebrow: 'Spatial stage',
+    title: 'Design the room visually, not bulb by bulb.',
+    body:
+      'Lumina gives you a spatial canvas for arranging fixtures, testing gradients, and building compositions that make sense in the actual room.',
+    points: [
+      'Drag fixtures into place and adjust the line of motion.',
+      'Preview color travel and spatial balance before playback.',
+      'Return to saved layouts instead of setting up every time.',
+    ],
+    image: {
+      src: 'spatial-rainbow.jpg',
+      alt: 'Lumina spatial stage with a rainbow gradient mapped across fixtures in a room layout.',
+      width: 585,
+      height: 1200,
+    },
+  },
+  {
+    eyebrow: 'Effect library',
+    title: 'Move from idea to look in seconds.',
+    body:
+      'The built-in library makes the app feel like a creative tool, not a utility. Choose a motion style, drop it into the stage, and iterate fast.',
+    points: [
+      'Browse effects as visual cards, not hidden menu items.',
+      'Mix bold, cinematic looks with subtle ambient motion.',
+      'Keep favorite looks close for repeated sessions or scenes.',
+    ],
+    image: {
+      src: 'effects-library.jpg',
+      alt: 'Lumina effect library showing visual effect tiles such as Rainbow Wave, Breathing, Ripple, and Sparkle.',
+      width: 587,
+      height: 1200,
+    },
+    reverse: true,
+  },
+  {
+    eyebrow: 'Audio calibration',
+    title: 'See what the engine hears.',
+    body:
+      'Real-time diagnostics turn audio reactivity into something you can tune. That means less guesswork and more reliable response across different speakers and rooms.',
+    points: [
+      'Inspect live bass, mid, high, BPM, and energy values.',
+      'Calibrate thresholds to match your room and playback level.',
+      'Debug reaction quality before you commit to a scene.',
+    ],
+    image: {
+      src: 'audio-calibration.jpg',
+      alt: 'Lumina audio calibration screen showing real-time bass, mid, high, BPM, and signal diagnostics.',
+      width: 1083,
+      height: 1200,
+    },
+  },
+  {
+    eyebrow: 'Performance looks',
+    title: 'Built for movement, contrast, and punch.',
+    body:
+      'From lasers to sparkles to ripples, Lumina is aimed at setups that should feel alive on camera and in person, whether you are building ambience or a mini light show.',
+    points: [
+      'Create high-contrast looks that read clearly in dark rooms.',
+      'Use audio-reactive motion for parties, desks, bedrooms, or studio sessions.',
+      'Switch looks quickly without leaving the main control surface.',
+    ],
+    image: {
+      src: 'laser-mode.jpg',
+      alt: 'Lumina stage view showing a laser-style lighting effect mapped across multiple fixtures.',
+      width: 587,
+      height: 1200,
+    },
+    reverse: true,
+  },
+]
+
+const modes = [
   {
     name: 'Spatial',
     detail:
-      'Build a room-sized stage with mapped fixtures, live preview, effect layering, and direct manipulation.',
+      'Build the room by hand with mapped fixtures, visual layering, and direct manipulation across the stage.',
+    image: {
+      src: 'spatial-ripple.jpg',
+      alt: 'Lumina spatial mode with a ripple effect centered in the room map.',
+      width: 585,
+      height: 1200,
+    },
   },
   {
     name: 'Auto',
     detail:
-      'Let the engine interpret energy, BPM, labels, and pattern blend so the lighting follows the room in real time.',
+      'Let the engine respond to music in real time using energy, BPM, labels, and audio-driven pattern behavior.',
+    image: {
+      src: 'spatial-sparkle.jpg',
+      alt: 'Lumina running a colorful sparkle effect that reacts across the room stage.',
+      width: 847,
+      height: 1200,
+    },
   },
   {
     name: 'Sequentio',
     detail:
-      'Drive order, timing, gradients, overlap, brightness, and motion like choreography instead of ambience.',
+      'Shape timing, order, gradients, brightness, overlap, and motion so scenes feel choreographed instead of random.',
+    image: {
+      src: 'laser-mode.jpg',
+      alt: 'Lumina controlling multiple fixtures with a dramatic crossing laser effect.',
+      width: 587,
+      height: 1200,
+    },
   },
 ]
 
-const featureTiles = [
+const integrations = [
   {
-    eyebrow: 'Stage',
-    title: 'A lighting canvas, not a settings screen.',
-    body:
-      'Lumina maps fixtures into a room model, lets you drag them into place, stack effects visually, and preview the stage before it hits real hardware.',
+    name: 'WLED',
+    body: 'Drive strips, segments, and pixel-heavy setups with room-aware control instead of one-off commands.',
   },
   {
-    eyebrow: 'Scenes',
-    title: 'Save the moment. Trigger it again instantly.',
-    body:
-      'The app saves scenes with effect data and thumbnails, supports drag-and-drop ordering, and builds beat-based sequences with adjustable beats per scene.',
+    name: 'Philips Hue Entertainment',
+    body: 'Work with entertainment areas when you want Hue hardware to behave more like a performance rig.',
   },
   {
-    eyebrow: 'Audio',
-    title: 'Microphone analysis with actual signal depth.',
-    body:
-      'BPM, pitch, energy, beat phase, confidence, spectral flux, spectral centroid, and band-hit events all exist in the code and all feed the motion system.',
+    name: 'Nanoleaf',
+    body: 'Bring panel layouts into the same creative workflow as strips, lamps, and fixture groups.',
   },
   {
-    eyebrow: 'Devices',
-    title: 'Designed for real rooms with real hardware.',
-    body:
-      'Lumina talks to WLED, Philips Hue Entertainment, Nanoleaf, and LIFX, with pairing, mapping, local-network control, and stored device configuration.',
+    name: 'LIFX',
+    body: 'Control LAN-capable bulbs and fixtures locally so changes feel immediate in the room.',
   },
 ]
 
-const stackColumns = [
-  {
-    title: 'Effects',
-    count: '17',
-    items: [
-      'Rainbow Wave',
-      'Breathing',
-      'Ripple',
-      'Sparkle',
-      'Gradient Flow',
-      'Fan Sweep',
-      'Shutter Sweep',
-      'Pinwheel',
-      'Orbiting Sun',
-      'Gravity Well',
-      'Flash Burst',
-      'Bouncing Centroid',
-      'Plasma',
-      'Fire',
-      'Digital Rain',
-      'Laser',
-      'Test Grid',
-    ],
-  },
-  {
-    title: 'Patterns',
-    count: '36',
-    items: [
-      'rand-v',
-      'disco-flash',
-      'pulse',
-      'pulsating',
-      'breathe',
-      'fade-lanes',
-      'on-off',
-      'staccato-gate',
-      'wave',
-      'neon-chase',
-      'twin-comet',
-      'fireworks',
-    ],
-  },
-  {
-    title: 'Gradients',
-    count: '7',
-    items: ['Fire', 'Ocean', 'Rainbow', 'Synthwave', 'Forest', 'Sunset', 'Monochrome'],
-  },
-  {
-    title: 'Integrations',
-    count: '4',
-    items: ['WLED', 'Philips Hue Entertainment', 'Nanoleaf', 'LIFX'],
-  },
+const workflow = [
+  'Discover and pair supported devices on your local network.',
+  'Map them into a room layout and save the setup.',
+  'Choose an effect, tune the response, and store the result as a scene.',
+  'Trigger the right mode for ambience, focus, parties, or live sessions.',
 ]
 
 function App() {
+  const baseUrl = import.meta.env.BASE_URL
+  const media = (fileName) => `${baseUrl}media/${fileName}`
+  const privacyHref = `${baseUrl}privacy/`
+
   return (
     <div className="site-shell">
       <header className="global-nav">
         <div className="nav-inner">
           <a className="nav-brand" href="#top" aria-label="Lumina home">
-            Lumina
+            <img src={media('lumina-icon.png')} alt="" width="32" height="32" />
+            <span>Lumina</span>
           </a>
 
           <nav className="nav-links" aria-label="Primary">
             <a href="#overview">Overview</a>
+            <a href="#features">Features</a>
             <a href="#modes">Modes</a>
-            <a href="#stack">Stack</a>
-            <a href="Privacy-Policy.md">Privacy</a>
+            <a href="#integrations">Integrations</a>
+            <a href={privacyHref}>Privacy</a>
           </nav>
         </div>
       </header>
 
       <main id="top">
-        <section className="apple-section hero-section theme-dark">
-          <div className="section-inner hero-inner">
-            <p className="section-kicker on-dark">Lumina</p>
-            <h1 className="hero-title">Audio-reactive lighting control for people who want more.</h1>
-            <p className="hero-subtitle">
-              Lumina listens, maps the room, saves scenes, sequences beats, and drives real hardware
-              with the intensity of a miniature live show.
-            </p>
-            <div className="cta-row centered">
-              <a className="apple-button apple-button-blue" href="#overview">
-                Learn more
-              </a>
-              <a className="apple-button apple-button-outline on-dark" href="https://github.com/tukies/Lumina-iOS">
-                View on GitHub
-              </a>
+        <section className="site-section hero-section">
+          <div className="section-inner hero-layout">
+            <div className="hero-copy">
+              <div className="brand-pill">
+                <img src={media('lumina-icon.png')} alt="" width="48" height="48" />
+                <div>
+                  <span>Lumina for iPhone</span>
+                  <strong>Spatial, audio-reactive lighting control</strong>
+                </div>
+              </div>
+
+              <p className="section-kicker">Smart lighting that feels like a live instrument.</p>
+              <h1 className="hero-title">Turn your room into a reactive light show.</h1>
+              <p className="hero-subtitle">
+                Lumina maps your lights in space, layers bold visual effects, and listens to music in
+                real time so WLED, Philips Hue Entertainment, Nanoleaf, and LIFX setups feel fast,
+                immersive, and intentional.
+              </p>
+
+              <div className="cta-row">
+                <a className="primary-button" href="#features">
+                  Explore features
+                </a>
+                <a className="secondary-button" href="https://github.com/tukies/Lumina-iOS">
+                  View on GitHub
+                </a>
+              </div>
+
+              <ul className="proof-strip" aria-label="Product highlights">
+                <li>Real screenshots from the app</li>
+                <li>On-device audio analysis</li>
+                <li>Scene saving and room mapping</li>
+                <li>Local-network lighting control</li>
+              </ul>
             </div>
 
-            <div className="product-stage" aria-hidden="true">
-              <div className="stage-floor" />
-              <div className="stage-panel panel-left">
-                <span>Spatial stage</span>
-              </div>
-              <div className="stage-panel panel-center">
-                <span>Beat-aware sequencing</span>
-              </div>
-              <div className="stage-panel panel-right">
-                <span>Local-first control</span>
-              </div>
+            <div className="hero-visual" aria-label="Lumina app preview">
+              <figure className="hero-shot hero-shot-main">
+                <img
+                  src={media('spatial-rainbow.jpg')}
+                  alt="Lumina controlling a room with a rainbow spatial effect across mapped fixtures."
+                  width="585"
+                  height="1200"
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="sync"
+                />
+              </figure>
+
+              <figure className="hero-shot hero-shot-top">
+                <img
+                  src={media('spatial-sparkle.jpg')}
+                  alt="Lumina spatial view with a colorful sparkle effect active across a mapped stage."
+                  width="847"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+
+              <figure className="hero-shot hero-shot-bottom">
+                <img
+                  src={media('effects-library.jpg')}
+                  alt="Lumina effect library with multiple lighting presets displayed as visual cards."
+                  width="587"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+
+              <aside className="hero-callout">
+                <span className="callout-label">Built for real setups</span>
+                <strong>Map the room once. Reuse it every session.</strong>
+                <p>
+                  Save scenes, reuse layouts, and tune the audio engine instead of fighting the same
+                  settings every time you want the room to look right.
+                </p>
+              </aside>
             </div>
           </div>
         </section>
 
-        <section className="apple-section theme-light" id="overview">
-          <div className="section-inner intro-inner">
-            <p className="section-kicker">Built from the actual app code</p>
-            <h2 className="section-headline">The product story comes from the implementation, not invented marketing.</h2>
-            <p className="section-body">
-              The current Lumina codebase exposes stage mapping, saved rooms, scenes, sequences,
-              gradients, calibration, audio intelligence, and direct integrations for multiple
-              lighting ecosystems. This site follows that product surface closely.
-            </p>
-
-            <div className="stat-strip">
-              {stats.map((stat) => (
-                <article className="stat-item" key={stat.label}>
-                  <strong>{stat.value}</strong>
-                  <span>{stat.label}</span>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="apple-section theme-dark feature-hero">
-          <div className="section-inner feature-hero-inner">
-            <div className="hero-copy-block">
-              <p className="section-kicker on-dark">Spatial</p>
-              <h2 className="section-headline on-dark">Build the room like a stage.</h2>
-              <p className="section-body on-dark">
-                Place fixtures, preview the room, layer effects, inspect parameters, and drive a live
-                canvas that treats smart lights like spatial instruments instead of isolated bulbs.
+        <section className="site-section" id="overview">
+          <div className="section-inner">
+            <div className="section-heading">
+              <p className="section-kicker">Why Lumina</p>
+              <h2 className="section-headline">Built for people who want more than presets and a color wheel.</h2>
+              <p className="section-body">
+                Most smart-light apps stop at simple color changes. Lumina is designed for bedrooms,
+                desks, studios, and parties where lighting should feel composed, reactive, and worth
+                looking at.
               </p>
             </div>
 
-            <div className="device-slab" aria-hidden="true">
-              <div className="slab-screen">
-                <div className="slab-grid">
-                  <span />
-                  <span />
-                  <span />
-                  <span />
-                  <span />
-                  <span />
-                </div>
+            <div className="promise-grid">
+              {promiseCards.map((card) => (
+                <article className="promise-card" key={card.title}>
+                  <p className="card-eyebrow">{card.eyebrow}</p>
+                  <h3>{card.title}</h3>
+                  <p>{card.body}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="metric-strip">
+              {metrics.map((metric) => (
+                <article className="metric-card" key={metric.label}>
+                  <strong>{metric.value}</strong>
+                  <span>{metric.label}</span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="site-section" id="features">
+          <div className="section-inner">
+            <div className="section-heading">
+              <p className="section-kicker">Inside the app</p>
+              <h2 className="section-headline">Every major claim on this page is backed by the product itself.</h2>
+              <p className="section-body">
+                The quickest way to trust a lighting app is to see the interface doing real work. These
+                screens show how Lumina handles room mapping, effect browsing, audio calibration, and
+                high-contrast performance looks.
+              </p>
+            </div>
+
+            <div className="story-stack">
+              {featureStories.map((story) => (
+                <article
+                  className={`story-card${story.reverse ? ' reverse' : ''}`}
+                  key={story.title}
+                >
+                  <figure className="story-media">
+                    <img
+                      src={media(story.image.src)}
+                      alt={story.image.alt}
+                      width={story.image.width}
+                      height={story.image.height}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+
+                  <div className="story-copy">
+                    <p className="card-eyebrow">{story.eyebrow}</p>
+                    <h3>{story.title}</h3>
+                    <p>{story.body}</p>
+                    <ul>
+                      {story.points.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="site-section" id="modes">
+          <div className="section-inner">
+            <div className="section-heading">
+              <p className="section-kicker">Modes</p>
+              <h2 className="section-headline">One app. Three different ways to command the room.</h2>
+              <p className="section-body">
+                Lumina is not locked to one workflow. You can design the stage manually, let the engine
+                interpret the music, or push more choreographed timing when you want a stronger sense
+                of progression.
+              </p>
+            </div>
+
+            <div className="mode-grid">
+              {modes.map((mode) => (
+                <article className="mode-card" key={mode.name}>
+                  <figure className="mode-card-media">
+                    <img
+                      src={media(mode.image.src)}
+                      alt={mode.image.alt}
+                      width={mode.image.width}
+                      height={mode.image.height}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                  <div className="mode-card-copy">
+                    <h3>{mode.name}</h3>
+                    <p>{mode.detail}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="site-section" id="integrations">
+          <div className="section-inner split-layout">
+            <article className="panel-card">
+              <p className="section-kicker align-left">Creative workflow</p>
+              <h2 className="section-headline align-left">A tighter loop from pairing to playback.</h2>
+              <p className="section-body align-left">
+                Lumina is strongest when it shortens the distance between an idea and a room-filling
+                result. The workflow is built around setup once, tune quickly, and reuse often.
+              </p>
+              <ol className="workflow-list">
+                {workflow.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+            </article>
+
+            <article className="panel-card">
+              <p className="section-kicker align-left">Compatibility</p>
+              <h2 className="section-headline align-left">Designed for mixed ecosystems.</h2>
+              <p className="section-body align-left">
+                If your room uses more than one brand, Lumina brings them into one control surface so
+                the lighting behaves like a single setup instead of four separate apps.
+              </p>
+              <div className="integration-grid">
+                {integrations.map((integration) => (
+                  <article className="integration-card" key={integration.name}>
+                    <h3>{integration.name}</h3>
+                    <p>{integration.body}</p>
+                  </article>
+                ))}
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="site-section closing-section">
+          <div className="section-inner closing-card">
+            <div className="closing-brand">
+              <img src={media('lumina-icon.png')} alt="" width="72" height="72" />
+              <div>
+                <p className="section-kicker align-left">Privacy by design</p>
+                <h2 className="section-headline align-left">Fast in the room because it stays close to the room.</h2>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className="apple-section theme-light tile-section">
-          <div className="section-inner">
-            <div className="tile-grid">
-              {featureTiles.map((tile) => (
-                <article className="feature-tile" key={tile.title}>
-                  <p className="tile-eyebrow">{tile.eyebrow}</p>
-                  <h3>{tile.title}</h3>
-                  <p>{tile.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="apple-section theme-dark" id="modes">
-          <div className="section-inner">
-            <p className="section-kicker on-dark">Three lighting modes</p>
-            <h2 className="section-headline on-dark">One app. Three ways to command the room.</h2>
-            <div className="mode-grid">
-              {modeCards.map((card) => (
-                <article className="mode-tile" key={card.name}>
-                  <h3>{card.name}</h3>
-                  <p>{card.detail}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="apple-section theme-light" id="stack">
-          <div className="section-inner">
-            <p className="section-kicker">Creative stack</p>
-            <h2 className="section-headline">Pulled directly from the app.</h2>
-            <p className="section-body">
-              Effect definitions, pattern IDs, preset gradients, and supported integrations all exist
-              in the Lumina implementation today.
-            </p>
-
-            <div className="stack-grid">
-              {stackColumns.map((column) => (
-                <article className="stack-column" key={column.title}>
-                  <div className="stack-heading">
-                    <h3>{column.title}</h3>
-                    <span>{column.count}</span>
-                  </div>
-                  <ul>
-                    {column.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="apple-section theme-dark closing-section">
-          <div className="section-inner closing-inner">
-            <p className="section-kicker on-dark">Local by design</p>
-            <h2 className="section-headline on-dark">Fast in the room. Grounded in the room.</h2>
-            <p className="section-body on-dark">
+            <p className="section-body align-left">
               Lumina stores layouts, scenes, gradients, calibration, and device mappings locally.
-              Audio analysis happens on device. Lighting commands stay on your network. That keeps the
-              experience immediate, tactile, and sharp.
+              Microphone analysis happens on device. Commands stay on your network. That keeps the app
+              responsive while giving you a clearer privacy story than cloud-heavy smart-home tools.
             </p>
-
-            <div className="cta-row centered">
-              <a className="apple-button apple-button-blue" href="Privacy-Policy.md">
-                Privacy policy
+            <div className="cta-row">
+              <a className="primary-button" href={privacyHref}>
+                Read privacy policy
               </a>
-              <a className="apple-button apple-button-outline on-dark" href="https://github.com/tukies/Lumina-iOS">
+              <a className="secondary-button" href="https://github.com/tukies/Lumina-iOS">
                 Open repository
               </a>
             </div>
