@@ -1,45 +1,47 @@
+import { useRef } from 'react'
+import LiquidGlass from 'liquid-glass-react'
 import './App.css'
 
 const metrics = [
-  { value: '17', label: 'Signature effects for mood, motion, and contrast' },
-  { value: '7', label: 'Curated gradients for faster scene building' },
-  { value: '4', label: 'Major lighting ecosystems in one app' },
-  { value: 'Local', label: 'Responsive control without sending the room to the cloud' },
+  { value: '17', label: 'Signature motion looks tuned for mood, tempo, and contrast.' },
+  { value: '4', label: 'Major lighting ecosystems controlled from one visual workspace.' },
+  { value: 'Local', label: 'Layouts, scenes, and commands stay on your network.' },
+  { value: 'Live', label: 'Audio diagnostics update in real time while you tune.' },
 ]
 
 const highlights = [
   {
     eyebrow: 'Spatial control',
-    title: 'Compose the whole room at once.',
+    title: 'Compose the room as one scene.',
     body:
-      'Place fixtures where they actually live, shape movement visually, and build a setup that feels coherent from every angle.',
+      'Place fixtures where they actually live, shape the travel of color, and balance the room before playback starts.',
   },
   {
-    eyebrow: 'Scene building',
-    title: 'Move from mood to result quickly.',
+    eyebrow: 'Effect library',
+    title: 'Start with a look, not a settings menu.',
     body:
-      'Start with bold effects and curated gradients, then refine the room until the atmosphere feels exactly right.',
+      'Browse visually, move quickly between bold and quiet moods, and keep the strongest looks close for repeat sessions.',
   },
   {
-    eyebrow: 'Audio response',
-    title: 'Keep the motion musical.',
+    eyebrow: 'Audio tuning',
+    title: 'Make motion feel musical.',
     body:
-      'Tune how the room reacts to bass, mids, highs, and tempo so the energy feels deliberate instead of chaotic.',
+      'Watch bass, mids, highs, BPM, and energy so reactive scenes feel deliberate instead of chaotic.',
   },
   {
     eyebrow: 'Local feel',
     title: 'Stay fast by staying close.',
     body:
-      'Layouts, scenes, and device settings stay with you while the control loop remains on your local network.',
+      'Audio analysis happens on device and device control stays local, which keeps the whole experience responsive.',
   },
 ]
 
 const stories = [
   {
     eyebrow: 'Spatial stage',
-    title: 'Design the space as one composition.',
+    title: 'Design the room as a composition.',
     body:
-      'Lumina turns the room into a visual stage for arranging fixtures, shaping color travel, and balancing the whole scene before playback.',
+      'Lumina turns the room into a visual stage for placing fixtures, shaping color travel, and balancing the whole scene before playback.',
     points: [
       'Arrange fixtures where they actually live in the room.',
       'Preview color travel and balance before lights go live.',
@@ -54,13 +56,13 @@ const stories = [
   },
   {
     eyebrow: 'Effect library',
-    title: 'Find the right look fast.',
+    title: 'Find the right atmosphere quickly.',
     body:
-      'The library feels closer to a creative palette than a settings menu, making it easy to move from an idea to a room-filling atmosphere.',
+      'The library feels closer to a creative palette than a configuration screen, so moving from an idea to a room-filling result feels immediate.',
     points: [
       'Browse effects visually instead of digging through controls.',
-      'Mix bold performance looks with quiet ambient motion.',
-      'Keep favorites close for repeat sessions and saved scenes.',
+      'Mix bold performance looks with quieter ambient motion.',
+      'Keep favorites close for saved scenes and repeat sessions.',
     ],
     image: {
       src: 'effects-library.jpg',
@@ -71,7 +73,7 @@ const stories = [
   },
   {
     eyebrow: 'Audio tuning',
-    title: 'Refine the response to your space.',
+    title: 'Refine the response for your space.',
     body:
       'Real-time diagnostics make audio-reactive lighting feel precise, with less guesswork and more consistency across rooms, speakers, and listening levels.',
     points: [
@@ -90,9 +92,8 @@ const stories = [
 
 const workflows = [
   {
-    name: 'Spatial control',
-    detail:
-      'Map the room with visual placement, layered motion, and direct control across the stage.',
+    name: 'Map the room',
+    detail: 'Build a stage that reflects the actual space, not just a list of devices.',
     image: {
       src: 'spatial-ripple.jpg',
       alt: 'Lumina spatial control view with a ripple effect centered in the room map.',
@@ -101,9 +102,8 @@ const workflows = [
     },
   },
   {
-    name: 'Effect library',
-    detail:
-      'Browse looks visually, place them into the room, and move from idea to playback without friction.',
+    name: 'Choose the look',
+    detail: 'Move through visual presets quickly until the room feels aligned with the moment.',
     image: {
       src: 'effects-library.jpg',
       alt: 'Lumina effect library with visual presets available for quick scene building.',
@@ -112,9 +112,8 @@ const workflows = [
     },
   },
   {
-    name: 'Audio tuning',
-    detail:
-      'Refine bass, mids, highs, BPM, and thresholds so the room responds the way your setup actually sounds.',
+    name: 'Tune the response',
+    detail: 'Dial in bass, mids, highs, BPM, and thresholds until motion feels intentional.',
     image: {
       src: 'audio-calibration.jpg',
       alt: 'Lumina audio calibration screen showing live levels and analysis controls.',
@@ -131,7 +130,7 @@ const integrations = [
   },
   {
     name: 'Philips Hue Entertainment',
-    body: 'Bring Hue entertainment areas into a more expressive, performance-minded control surface.',
+    body: 'Bring entertainment areas into a more expressive, performance-minded control surface.',
   },
   {
     name: 'Nanoleaf',
@@ -150,15 +149,115 @@ const setupSteps = [
   'Recall the right atmosphere for focus, hosting, or late-night listening.',
 ]
 
+const heroBadges = [
+  {
+    className: 'hero-glass--stage',
+    eyebrow: 'Spatial stage',
+    title: 'Room mapping with live color travel',
+    detail: 'Place fixtures once, then tune balance and movement before playback.',
+    mode: 'shader',
+  },
+  {
+    className: 'hero-glass--signal',
+    eyebrow: 'Audio response',
+    title: 'Live bass, mids, highs, BPM, and energy',
+    detail: 'Tune reactive scenes with signal feedback that stays readable.',
+    mode: 'polar',
+  },
+  {
+    className: 'hero-glass--systems',
+    eyebrow: 'Unified control',
+    title: 'WLED, Hue, Nanoleaf, and LIFX in one flow',
+    detail: 'Less switching between apps. More time shaping the room.',
+    mode: 'prominent',
+  },
+]
+
+const consoleSignals = [
+  { label: 'Supported systems', value: 'WLED, Hue, Nanoleaf, LIFX' },
+  { label: 'Scene inputs', value: 'Spatial placement, gradients, favorites, saved layouts' },
+  { label: 'Audio diagnostics', value: 'Bass, mids, highs, BPM, and energy in real time' },
+]
+
+function FloatingGlassTag({ containerRef, className, eyebrow, title, detail, mode }) {
+  return (
+    <LiquidGlass
+      className={`hero-glass ${className}`}
+      mouseContainer={containerRef}
+      style={{ position: 'absolute', top: 'var(--glass-top)', left: 'var(--glass-left)', zIndex: 5 }}
+      padding="0px"
+      cornerRadius={30}
+      blurAmount={0.08}
+      saturation={165}
+      displacementScale={76}
+      aberrationIntensity={2}
+      elasticity={0.26}
+      mode={mode}
+    >
+      <div className="hero-glass-card">
+        <p>{eyebrow}</p>
+        <strong>{title}</strong>
+        <span>{detail}</span>
+      </div>
+    </LiquidGlass>
+  )
+}
+
+function HeroConsole({ containerRef }) {
+  return (
+    <LiquidGlass
+      className="hero-console"
+      mouseContainer={containerRef}
+      style={{ position: 'absolute', top: 'var(--console-top)', left: 'var(--console-left)', zIndex: 6 }}
+      padding="0px"
+      cornerRadius={34}
+      blurAmount={0.09}
+      saturation={172}
+      displacementScale={82}
+      aberrationIntensity={2}
+      elasticity={0.28}
+      mode="shader"
+    >
+      <div className="hero-console-body">
+        <div className="hero-console-heading">
+          <p>Creative control</p>
+          <strong>One calm workspace for the whole room.</strong>
+        </div>
+
+        <div className="hero-console-grid">
+          {consoleSignals.map((signal) => (
+            <div className="hero-console-item" key={signal.label}>
+              <span>{signal.label}</span>
+              <strong>{signal.value}</strong>
+            </div>
+          ))}
+        </div>
+      </div>
+    </LiquidGlass>
+  )
+}
+
 function App() {
+  const heroRef = useRef(null)
   const baseUrl = import.meta.env.BASE_URL
   const media = (fileName) => `${baseUrl}media/${fileName}`
   const privacyHref = `${baseUrl}privacy/`
 
   return (
     <div className="site-shell">
-      <header className="global-nav">
-        <div className="nav-inner">
+      <LiquidGlass
+        className="global-nav-glass"
+        style={{ position: 'fixed', top: '30px', left: '50%', zIndex: 30 }}
+        padding="0px"
+        cornerRadius={999}
+        blurAmount={0.08}
+        saturation={162}
+        displacementScale={68}
+        aberrationIntensity={2}
+        elasticity={0.18}
+        mode="standard"
+      >
+        <div className="nav-pill">
           <a className="nav-brand" href="#top" aria-label="Lumina home">
             Lumina
           </a>
@@ -171,21 +270,19 @@ function App() {
             <a href={privacyHref}>Privacy</a>
           </nav>
         </div>
-      </header>
+      </LiquidGlass>
 
       <main id="top">
-        <section className="hero-section">
-          <div className="hero-background" aria-hidden="true" />
-
-          <div className="hero-content">
+        <section className="hero-section" ref={heroRef}>
+          <div className="hero-layout">
             <div className="hero-copy">
-              <p className="hero-brandmark">Lumina</p>
-              <p className="hero-label">Spatial, audio-reactive lighting control for iPhone, iPad and Mac</p>
+              <p className="hero-kicker">Spatial, audio-reactive lighting studio for iPhone, iPad, and Mac</p>
+              <p className="hero-brand">Lumina</p>
               <h1 className="hero-title">Light the room like it means something.</h1>
               <p className="hero-subtitle">
                 Lumina brings spatial control, audio-reactive motion, and beautifully composed effects
-                into one iPhone app, so your WLED, Hue, Nanoleaf, and LIFX setup feels immersive,
-                polished, and effortless to use.
+                into one app, so your WLED, Hue, Nanoleaf, and LIFX setup feels immersive, polished,
+                and fast to shape.
               </p>
 
               <div className="cta-row">
@@ -205,33 +302,75 @@ function App() {
               </ul>
             </div>
 
-            <figure className="hero-figure">
-              <img
-                src={media('spatial-rainbow.jpg')}
-                alt="Lumina controlling a room with a rainbow spatial effect across mapped fixtures."
-                width="585"
-                height="1200"
-                fetchPriority="high"
-                loading="eager"
-                decoding="sync"
-              />
-              <figcaption>Spatial stage, scene-ready control, and live audio response in one view.</figcaption>
-            </figure>
+            <div className="hero-stage" aria-label="Lumina interface preview">
+              <div className="stage-halo" aria-hidden="true" />
+              <div className="stage-grid" aria-hidden="true" />
+
+              <div className="device-stack">
+                <figure className="device-frame device-frame--secondary">
+                  <img
+                    src={media('effects-library.jpg')}
+                    alt="Lumina effect library showing visual presets."
+                    width="587"
+                    height="1200"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+
+                <figure className="device-frame device-frame--primary">
+                  <img
+                    src={media('spatial-rainbow.jpg')}
+                    alt="Lumina controlling a room with a rainbow spatial effect across mapped fixtures."
+                    width="585"
+                    height="1200"
+                    fetchPriority="high"
+                    loading="eager"
+                    decoding="sync"
+                  />
+                </figure>
+
+                <figure className="device-frame device-frame--tertiary">
+                  <img
+                    src={media('audio-calibration.jpg')}
+                    alt="Lumina audio calibration interface with live diagnostics."
+                    width="1083"
+                    height="1200"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              </div>
+
+              {heroBadges.map((badge) => (
+                <FloatingGlassTag
+                  key={badge.title}
+                  containerRef={heroRef}
+                  className={badge.className}
+                  eyebrow={badge.eyebrow}
+                  title={badge.title}
+                  detail={badge.detail}
+                  mode={badge.mode}
+                />
+              ))}
+
+              <HeroConsole containerRef={heroRef} />
+            </div>
           </div>
         </section>
 
         <section className="support-section" id="overview">
-          <div className="section-frame">
-            <div className="section-intro">
-              <p className="section-kicker">Why Lumina</p>
-              <h2 className="section-title">For spaces that deserve more than presets.</h2>
+          <div className="section-shell support-layout">
+            <div className="section-intro support-intro">
+              <p className="section-kicker">Overview</p>
+              <h2 className="section-title">A lighting studio instead of a pile of presets.</h2>
               <p className="section-copy">
                 Most smart-light apps stop at utility. Lumina is built for bedrooms, desks, studios,
                 and social spaces where lighting should feel cinematic, responsive, and considered.
               </p>
             </div>
 
-            <div className="metric-rail">
+            <div className="metric-grid" aria-label="Product metrics">
               {metrics.map((metric) => (
                 <article className="metric-item" key={metric.label}>
                   <strong>{metric.value}</strong>
@@ -239,7 +378,9 @@ function App() {
                 </article>
               ))}
             </div>
+          </div>
 
+          <div className="section-shell">
             <div className="highlight-grid">
               {highlights.map((item) => (
                 <article className="highlight-item" key={item.title}>
@@ -253,13 +394,13 @@ function App() {
         </section>
 
         <section className="story-section" id="features">
-          <div className="section-frame section-frame-wide">
+          <div className="section-shell section-shell-wide">
             <div className="section-intro align-left">
               <p className="section-kicker">Detail</p>
-              <h2 className="section-title">A creative workflow, not a pile of settings.</h2>
+              <h2 className="section-title">Built to move from layout to atmosphere without friction.</h2>
               <p className="section-copy">
-                From room mapping to effect selection to audio tuning, Lumina keeps the process fluid
-                so shaping the atmosphere feels quick, visual, and satisfying.
+                From room mapping to effect selection to audio tuning, Lumina keeps the process visual
+                and fluid so shaping the atmosphere feels quick, clear, and satisfying.
               </p>
             </div>
 
@@ -295,19 +436,20 @@ function App() {
         </section>
 
         <section className="workflow-section" id="workflows">
-          <div className="section-frame">
+          <div className="section-shell">
             <div className="section-intro">
               <p className="section-kicker">Workflow</p>
-              <h2 className="section-title">Everything you need to shape the mood.</h2>
+              <h2 className="section-title">See the room, choose the look, tune the response.</h2>
               <p className="section-copy">
-                Lumina keeps the essentials close at hand, from mapping the room to finding the right
-                look to dialing in the response until the space feels exactly right.
+                The core workflow stays calm and direct, so the room always feels like one
+                composition instead of a stack of disconnected controls.
               </p>
             </div>
 
             <div className="workflow-columns">
-              {workflows.map((workflow) => (
+              {workflows.map((workflow, index) => (
                 <article className="workflow-column" key={workflow.name}>
+                  <span className="workflow-index">0{index + 1}</span>
                   <h3>{workflow.name}</h3>
                   <p>{workflow.detail}</p>
                   <figure className="workflow-media">
@@ -327,13 +469,13 @@ function App() {
         </section>
 
         <section className="systems-section" id="systems">
-          <div className="section-frame systems-layout">
+          <div className="section-shell systems-layout">
             <div className="systems-copy">
               <p className="section-kicker align-left">Systems</p>
               <h2 className="section-title align-left">One control surface for the whole room.</h2>
               <p className="section-copy align-left">
-                If your setup spans more than one brand, Lumina brings everything into one place so the
-                room behaves like a single experience instead of a stack of separate apps.
+                If your setup spans more than one brand, Lumina brings everything into one place so
+                the room behaves like a single experience instead of a stack of separate apps.
               </p>
 
               <ol className="setup-list">
@@ -355,10 +497,10 @@ function App() {
         </section>
 
         <section className="closing-section">
-          <div className="closing-band">
+          <div className="section-shell closing-band">
             <div className="closing-copy">
               <p className="section-kicker align-left">Privacy by design</p>
-              <h2 className="section-title align-left">Stays in the room.</h2>
+              <h2 className="section-title align-left">Fast because it stays in the room.</h2>
               <p className="section-copy align-left">
                 Layouts, scenes, gradients, and device mappings stay local. Audio analysis happens on
                 device. Commands stay on your network. The result is a setup that feels faster,
@@ -366,7 +508,7 @@ function App() {
               </p>
             </div>
 
-            <div className="cta-row">
+            <div className="cta-row closing-actions">
               <a className="primary-button" href={privacyHref}>
                 Read privacy policy
               </a>

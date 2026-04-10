@@ -1,37 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap');
+
 :root {
-  font-family:
-    'Avenir Next',
-    'SF Pro Display',
-    'Segoe UI',
-    sans-serif;
-  color: #f7f2ea;
-  background:
-    radial-gradient(circle at top, rgba(110, 228, 255, 0.08), transparent 30%),
-    linear-gradient(180deg, #06070b 0%, #090b11 40%, #06070b 100%);
+  --font-sans: 'Manrope', 'Avenir Next', 'Segoe UI', sans-serif;
+  --font-display: 'Instrument Serif', 'Times New Roman', serif;
+  --bg: #060810;
+  --bg-deep: #04060d;
+  --surface: rgba(10, 14, 22, 0.72);
+  --text-strong: #f5f7fb;
+  --text-soft: #dde5f5;
+  --text-muted: #b0bbd0;
+  --accent: #84dcff;
+  --line: rgba(255, 255, 255, 0.08);
+  font-family: var(--font-sans);
+  color: var(--text-strong);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --bg: #06070b;
-  --surface: #0d1017;
-  --surface-soft: #131925;
-  --text-strong: #fbf7f2;
-  --text-muted: #c3c8d4;
-  --text-soft: #d8deea;
-  --accent: #8ce8ff;
-  --accent-strong: #7e7bff;
-  --hue-gradient:
-    linear-gradient(
-      135deg,
-      #67f5ff 0%,
-      #59b7ff 18%,
-      #7a7cff 36%,
-      #b86dff 54%,
-      #ff68d1 72%,
-      #ff7a8f 86%,
-      #ffd36b 100%
-    );
-  --line: rgba(255, 255, 255, 0.08);
 }
 
 *,
@@ -48,7 +33,24 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: var(--bg);
+  color: var(--text-strong);
+  background:
+    radial-gradient(circle at top, rgba(123, 224, 255, 0.12), transparent 26%),
+    radial-gradient(circle at 20% 80%, rgba(89, 128, 255, 0.12), transparent 28%),
+    linear-gradient(180deg, var(--bg) 0%, #070a12 42%, var(--bg-deep) 100%);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black 0%, rgba(0, 0, 0, 0.85) 56%, transparent 100%);
 }
 
 body,
@@ -73,6 +75,6 @@ a {
 }
 
 ::selection {
-  background: rgba(122, 124, 255, 0.28);
+  background: rgba(132, 220, 255, 0.28);
   color: var(--text-strong);
 }
