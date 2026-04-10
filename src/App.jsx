@@ -149,59 +149,12 @@ const setupSteps = [
   'Recall the right atmosphere for focus, hosting, or late-night listening.',
 ]
 
-const heroBadges = [
-  {
-    className: 'hero-glass--stage',
-    eyebrow: 'Spatial stage',
-    title: 'Room mapping with live color travel',
-    detail: 'Place fixtures once, then tune balance and movement before playback.',
-    mode: 'shader',
-  },
-  {
-    className: 'hero-glass--signal',
-    eyebrow: 'Audio response',
-    title: 'Live bass, mids, highs, BPM, and energy',
-    detail: 'Tune reactive scenes with signal feedback that stays readable.',
-    mode: 'polar',
-  },
-  {
-    className: 'hero-glass--systems',
-    eyebrow: 'Unified control',
-    title: 'WLED, Hue, Nanoleaf, and LIFX in one flow',
-    detail: 'Less switching between apps. More time shaping the room.',
-    mode: 'prominent',
-  },
-]
+const heroSystems = ['WLED', 'Hue', 'Nanoleaf', 'LIFX']
 
 const consoleSignals = [
-  { label: 'Supported systems', value: 'WLED, Hue, Nanoleaf, LIFX' },
-  { label: 'Scene inputs', value: 'Spatial placement, gradients, favorites, saved layouts' },
-  { label: 'Audio diagnostics', value: 'Bass, mids, highs, BPM, and energy in real time' },
+  { label: 'Scene building', value: 'Spatial mapping, gradients, favorites, and saved looks.' },
+  { label: 'Audio tuning', value: 'Live BPM, energy, and frequency-band response.' },
 ]
-
-function FloatingGlassTag({ containerRef, className, eyebrow, title, detail, mode }) {
-  return (
-    <LiquidGlass
-      className={`hero-glass ${className}`}
-      mouseContainer={containerRef}
-      style={{ position: 'absolute', top: 'var(--glass-top)', left: 'var(--glass-left)', zIndex: 5 }}
-      padding="0px"
-      cornerRadius={30}
-      blurAmount={0.08}
-      saturation={165}
-      displacementScale={76}
-      aberrationIntensity={2}
-      elasticity={0.26}
-      mode={mode}
-    >
-      <div className="hero-glass-card">
-        <p>{eyebrow}</p>
-        <strong>{title}</strong>
-        <span>{detail}</span>
-      </div>
-    </LiquidGlass>
-  )
-}
 
 function HeroConsole({ containerRef }) {
   return (
@@ -211,17 +164,23 @@ function HeroConsole({ containerRef }) {
       style={{ position: 'absolute', top: 'var(--console-top)', left: 'var(--console-left)', zIndex: 6 }}
       padding="0px"
       cornerRadius={34}
-      blurAmount={0.09}
-      saturation={172}
-      displacementScale={82}
+      blurAmount={0.075}
+      saturation={168}
+      displacementScale={74}
       aberrationIntensity={2}
-      elasticity={0.28}
-      mode="shader"
+      elasticity={0.22}
+      mode="standard"
     >
       <div className="hero-console-body">
         <div className="hero-console-heading">
           <p>Creative control</p>
           <strong>One calm workspace for the whole room.</strong>
+        </div>
+
+        <div className="hero-console-systems" aria-label="Supported systems">
+          {heroSystems.map((system) => (
+            <span key={system}>{system}</span>
+          ))}
         </div>
 
         <div className="hero-console-grid">
@@ -238,7 +197,7 @@ function HeroConsole({ containerRef }) {
 }
 
 function App() {
-  const heroRef = useRef(null)
+  const heroStageRef = useRef(null)
   const baseUrl = import.meta.env.BASE_URL
   const media = (fileName) => `${baseUrl}media/${fileName}`
   const privacyHref = `${baseUrl}privacy/`
@@ -273,7 +232,7 @@ function App() {
       </LiquidGlass>
 
       <main id="top">
-        <section className="hero-section" ref={heroRef}>
+        <section className="hero-section">
           <div className="hero-layout">
             <div className="hero-copy">
               <p className="hero-kicker">Spatial, audio-reactive lighting studio for iPhone, iPad, and Mac</p>
@@ -302,59 +261,54 @@ function App() {
               </ul>
             </div>
 
-            <div className="hero-stage" aria-label="Lumina interface preview">
-              <div className="stage-halo" aria-hidden="true" />
-              <div className="stage-grid" aria-hidden="true" />
+            <div className="hero-stage" aria-label="Lumina interface preview" ref={heroStageRef}>
+              <div className="hero-stage-frame">
+                <div className="stage-halo" aria-hidden="true" />
+                <div className="stage-grid" aria-hidden="true" />
 
-              <div className="device-stack">
-                <figure className="device-frame device-frame--secondary">
-                  <img
-                    src={media('effects-library.jpg')}
-                    alt="Lumina effect library showing visual presets."
-                    width="587"
-                    height="1200"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </figure>
+                <div className="stage-copy">
+                  <p>Spatial stage</p>
+                  <strong>Map the room, choose the mood, and tune the response in one view.</strong>
+                </div>
 
-                <figure className="device-frame device-frame--primary">
-                  <img
-                    src={media('spatial-rainbow.jpg')}
-                    alt="Lumina controlling a room with a rainbow spatial effect across mapped fixtures."
-                    width="585"
-                    height="1200"
-                    fetchPriority="high"
-                    loading="eager"
-                    decoding="sync"
-                  />
-                </figure>
+                <div className="device-stack">
+                  <figure className="device-frame device-frame--secondary">
+                    <img
+                      src={media('effects-library.jpg')}
+                      alt="Lumina effect library showing visual presets."
+                      width="587"
+                      height="1200"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
 
-                <figure className="device-frame device-frame--tertiary">
-                  <img
-                    src={media('audio-calibration.jpg')}
-                    alt="Lumina audio calibration interface with live diagnostics."
-                    width="1083"
-                    height="1200"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </figure>
+                  <figure className="device-frame device-frame--primary">
+                    <img
+                      src={media('spatial-rainbow.jpg')}
+                      alt="Lumina controlling a room with a rainbow spatial effect across mapped fixtures."
+                      width="585"
+                      height="1200"
+                      fetchPriority="high"
+                      loading="eager"
+                      decoding="sync"
+                    />
+                  </figure>
+
+                  <figure className="device-frame device-frame--tertiary">
+                    <img
+                      src={media('audio-calibration.jpg')}
+                      alt="Lumina audio calibration interface with live diagnostics."
+                      width="1083"
+                      height="1200"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                </div>
+
+                <HeroConsole containerRef={heroStageRef} />
               </div>
-
-              {heroBadges.map((badge) => (
-                <FloatingGlassTag
-                  key={badge.title}
-                  containerRef={heroRef}
-                  className={badge.className}
-                  eyebrow={badge.eyebrow}
-                  title={badge.title}
-                  detail={badge.detail}
-                  mode={badge.mode}
-                />
-              ))}
-
-              <HeroConsole containerRef={heroRef} />
             </div>
           </div>
         </section>

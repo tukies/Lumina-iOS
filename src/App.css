@@ -37,7 +37,6 @@
 }
 
 .global-nav-glass .glass,
-.hero-glass .glass,
 .hero-console .glass {
   border: 1px solid rgba(255, 255, 255, 0.14);
   background:
@@ -92,20 +91,23 @@
 .hero-section {
   position: relative;
   min-height: 100svh;
-  padding: clamp(8rem, 11vw, 9rem) 0 4.5rem;
+  padding: clamp(6.8rem, 9vw, 7.8rem) 0 3rem;
 }
 
 .hero-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: clamp(2.5rem, 4vw, 4.5rem);
-  align-items: center;
+  grid-template-columns: minmax(320px, 0.92fr) minmax(440px, 1.08fr);
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: end;
   width: min(1280px, calc(100% - 56px));
   margin: 0 auto;
 }
 
 .hero-copy {
-  max-width: 35rem;
+  position: relative;
+  z-index: 2;
+  max-width: 36rem;
+  padding-top: clamp(1rem, 2.5vw, 2.4rem);
 }
 
 .hero-kicker,
@@ -129,10 +131,10 @@
 }
 
 .hero-brand {
-  margin: 0.9rem 0 0;
+  margin: 0.7rem 0 0;
   color: var(--text-strong);
   font-family: var(--font-display);
-  font-size: clamp(5rem, 11vw, 8.8rem);
+  font-size: clamp(3.7rem, 8.4vw, 6.9rem);
   font-style: italic;
   line-height: 0.88;
   letter-spacing: -0.06em;
@@ -141,8 +143,9 @@
 
 .hero-title {
   margin: 0.6rem 0 0;
+  max-width: 10ch;
   color: var(--text-strong);
-  font-size: clamp(2.5rem, 5.1vw, 4.6rem);
+  font-size: clamp(2.5rem, 4.35vw, 4rem);
   font-weight: 800;
   line-height: 0.95;
   letter-spacing: -0.06em;
@@ -166,7 +169,7 @@
 
 .hero-subtitle {
   max-width: 32rem;
-  margin: 1.35rem 0 0;
+  margin: 1.1rem 0 0;
   animation-delay: 320ms;
 }
 
@@ -174,7 +177,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.95rem;
-  margin-top: 1.8rem;
+  margin-top: 1.45rem;
   animation-delay: 400ms;
 }
 
@@ -182,7 +185,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem 1.25rem;
-  margin: 1.5rem 0 0;
+  margin: 1.1rem 0 0;
   padding: 0;
   list-style: none;
   animation-delay: 480ms;
@@ -207,8 +210,24 @@
 
 .hero-stage {
   position: relative;
-  min-height: 49rem;
+  min-height: 37rem;
   isolation: isolate;
+}
+
+.hero-stage-frame {
+  position: relative;
+  min-height: 37rem;
+  overflow: hidden;
+  padding: 1.15rem 1.15rem 5.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2.6rem;
+  background:
+    radial-gradient(circle at top left, rgba(113, 224, 255, 0.08), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+    rgba(8, 11, 18, 0.76);
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .stage-halo,
@@ -229,16 +248,41 @@
 
 .stage-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(circle at 52% 50%, black 0%, rgba(0, 0, 0, 0.92) 48%, transparent 80%);
-  opacity: 0.45;
+  opacity: 0.32;
+}
+
+.stage-copy {
+  position: relative;
+  z-index: 4;
+  max-width: 16rem;
+}
+
+.stage-copy p {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.stage-copy strong {
+  display: block;
+  margin-top: 0.7rem;
+  color: var(--text-strong);
+  font-size: 1.08rem;
+  line-height: 1.35;
+  font-weight: 600;
 }
 
 .device-stack {
   position: relative;
   width: 100%;
+  min-height: 28rem;
   height: 100%;
 }
 
@@ -270,65 +314,36 @@
 }
 
 .device-frame--primary {
-  top: 4%;
-  right: 10%;
+  top: 2.4rem;
+  left: 50%;
   z-index: 3;
-  width: min(22rem, 35vw);
-  transform: rotate(2deg);
+  width: min(16.5rem, 24vw);
+  transform: translateX(-50%) rotate(4deg);
   animation-delay: 0ms;
 }
 
 .device-frame--secondary {
-  top: 15%;
-  left: 8%;
+  top: 6.4rem;
+  left: 5%;
   z-index: 2;
-  width: min(15rem, 25vw);
-  transform: rotate(-12deg);
+  width: min(8.2rem, 13vw);
+  transform: rotate(-14deg);
   animation-delay: -3s;
 }
 
 .device-frame--tertiary {
+  top: 3.8rem;
   right: 4%;
-  bottom: 6%;
   z-index: 4;
-  width: min(18rem, 30vw);
-  transform: rotate(9deg);
+  width: min(9.4rem, 14vw);
+  transform: rotate(10deg);
   animation-delay: -6s;
 }
 
-.hero-glass {
-  --glass-top: 50%;
-  --glass-left: 50%;
-}
-
-.hero-glass--stage {
-  --glass-top: 21%;
-  --glass-left: 24%;
-}
-
-.hero-glass--signal {
-  --glass-top: 31%;
-  --glass-left: 83%;
-}
-
-.hero-glass--systems {
-  --glass-top: 76%;
-  --glass-left: 17%;
-}
-
-.hero-glass-card,
 .hero-console-body {
   font-family: var(--font-sans);
 }
 
-.hero-glass-card {
-  display: grid;
-  gap: 0.55rem;
-  width: min(19rem, 31vw);
-  padding: 1rem 1.05rem 1.05rem;
-}
-
-.hero-glass-card p,
 .hero-console-heading p {
   margin: 0;
   color: rgba(225, 236, 255, 0.78);
@@ -338,40 +353,49 @@
   text-transform: uppercase;
 }
 
-.hero-glass-card strong,
 .hero-console-heading strong {
   color: var(--text-strong);
-  font-size: 1.02rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.25;
 }
 
-.hero-glass-card span {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
 .hero-console {
-  --console-top: 84%;
-  --console-left: 55%;
+  --console-top: 76%;
+  --console-left: 50%;
 }
 
 .hero-console-body {
   display: grid;
-  gap: 1rem;
-  width: min(37rem, 58vw);
-  padding: 1.25rem;
+  gap: 0.9rem;
+  width: min(27rem, 39vw);
+  padding: 0.85rem 0.9rem 0.9rem;
+}
+
+.hero-console-systems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.hero-console-systems span {
+  padding: 0.32rem 0.62rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  color: var(--text-soft);
+  font-size: 0.8rem;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .hero-console-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.8rem;
 }
 
 .hero-console-item {
-  padding: 0.9rem;
+  padding: 0.8rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1.1rem;
   background: rgba(255, 255, 255, 0.045);
@@ -381,8 +405,8 @@
   display: block;
   margin-top: 0.45rem;
   color: var(--text-strong);
-  font-size: 0.96rem;
-  line-height: 1.45;
+  font-size: 0.88rem;
+  line-height: 1.5;
   font-weight: 600;
 }
 
@@ -776,42 +800,29 @@
 
   .hero-copy {
     max-width: 40rem;
+    padding-top: 0;
   }
 
   .hero-stage {
-    min-height: 43rem;
+    max-width: 52rem;
+    min-height: 41rem;
+    margin-inline: auto;
   }
 
-  .device-frame--primary {
-    right: 16%;
+  .hero-stage-frame {
+    min-height: 41rem;
   }
 
   .device-frame--secondary {
-    left: 14%;
+    left: 8%;
   }
 
   .device-frame--tertiary {
-    right: 12%;
-  }
-
-  .hero-glass--stage {
-    --glass-top: 19%;
-    --glass-left: 24%;
-  }
-
-  .hero-glass--signal {
-    --glass-top: 27%;
-    --glass-left: 75%;
-  }
-
-  .hero-glass--systems {
-    --glass-top: 74%;
-    --glass-left: 20%;
+    right: 7%;
   }
 
   .hero-console {
-    --console-top: 85%;
-    --console-left: 52%;
+    --console-top: 84%;
   }
 
   .highlight-grid,
@@ -856,7 +867,12 @@
   }
 
   .hero-stage {
-    min-height: 35rem;
+    min-height: 34rem;
+  }
+
+  .hero-stage-frame {
+    min-height: 34rem;
+    padding: 1rem 1rem 6.6rem;
   }
 
   .device-frame {
@@ -864,45 +880,28 @@
   }
 
   .device-frame--primary {
-    right: 8%;
-    width: min(15rem, 45vw);
+    width: min(15.5rem, 43vw);
   }
 
   .device-frame--secondary {
+    top: 8rem;
     left: 2%;
-    width: min(10rem, 28vw);
+    width: min(8.8rem, 26vw);
   }
 
   .device-frame--tertiary {
-    right: 0;
-    width: min(12rem, 35vw);
-  }
-
-  .hero-glass-card {
-    width: min(15rem, 50vw);
-  }
-
-  .hero-glass--stage {
-    --glass-top: 14%;
-    --glass-left: 22%;
-  }
-
-  .hero-glass--signal {
-    --glass-top: 31%;
-    --glass-left: 77%;
-  }
-
-  .hero-glass--systems {
-    display: none;
+    top: 5.8rem;
+    right: 1%;
+    width: min(10rem, 29vw);
   }
 
   .hero-console {
-    --console-top: 89%;
+    --console-top: 83%;
     --console-left: 50%;
   }
 
   .hero-console-body {
-    width: min(21rem, 76vw);
+    width: min(21rem, 78vw);
     padding: 1rem;
   }
 
@@ -958,43 +957,45 @@
   }
 
   .hero-stage {
-    min-height: 31rem;
+    min-height: 30rem;
+  }
+
+  .hero-stage-frame {
+    min-height: 30rem;
+    padding-bottom: 6.2rem;
+  }
+
+  .stage-copy {
+    max-width: 12.5rem;
+  }
+
+  .stage-copy strong {
+    font-size: 0.96rem;
   }
 
   .device-frame--primary {
-    right: 4%;
+    width: min(13.75rem, 48vw);
   }
 
   .device-frame--secondary {
-    left: 0;
-    width: min(8.75rem, 30vw);
+    top: 8.5rem;
+    width: min(7.2rem, 27vw);
   }
 
   .device-frame--tertiary {
-    width: min(10rem, 34vw);
+    display: none;
   }
 
-  .hero-glass--stage {
-    --glass-top: 15%;
-    --glass-left: 27%;
+  .hero-console {
+    --console-top: 82%;
   }
 
-  .hero-glass--signal {
-    --glass-top: 35%;
-    --glass-left: 74%;
+  .hero-console-systems {
+    gap: 0.35rem;
   }
 
-  .hero-glass-card {
-    width: min(12rem, 47vw);
-    padding: 0.85rem 0.9rem;
-  }
-
-  .hero-glass-card strong {
-    font-size: 0.94rem;
-  }
-
-  .hero-glass-card span {
-    font-size: 0.84rem;
+  .hero-console-systems span {
+    font-size: 0.74rem;
   }
 
   .story-media,
