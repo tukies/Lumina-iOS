@@ -124,18 +124,24 @@ const workflows = [
 const integrations = [
   {
     name: 'WLED',
+    logo: 'wled-logo.png',
     body: 'Control strips, segments, and pixel-heavy installations with a workflow designed for larger setups.',
   },
   {
     name: 'Philips Hue Entertainment',
+    logo: 'philipshue-logo.svg',
     body: 'Bring entertainment areas into a more expressive, performance-minded control surface.',
   },
   {
     name: 'Nanoleaf',
+    logo: 'nanoleaf-logo.png',
+    logoWide: true,
     body: 'Keep panel layouts in the same visual language as strips, lamps, and grouped fixtures.',
   },
   {
     name: 'LIFX',
+    logo: 'lifx-logo.svg',
+    logoWide: true,
     body: 'Control LAN-capable bulbs and fixtures with changes that feel instant in the room.',
   },
 ]
@@ -405,7 +411,23 @@ function App() {
             <div className="integration-list">
               {integrations.map((integration) => (
                 <article className="integration-row" key={integration.name}>
-                  <h3>{integration.name}</h3>
+                  <div className="integration-brand">
+                    <span
+                      className={`integration-logo-shell${
+                        integration.logoWide ? ' integration-logo-shell--wide' : ''
+                      }`}
+                    >
+                      <img
+                        className="integration-logo"
+                        src={media(integration.logo)}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <h3>{integration.name}</h3>
+                  </div>
                   <p>{integration.body}</p>
                 </article>
               ))}
