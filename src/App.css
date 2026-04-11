@@ -111,7 +111,7 @@
 }
 
 .hero-kicker,
-.hero-brand,
+.hero-brand-lockup,
 .hero-title,
 .hero-subtitle,
 .cta-row,
@@ -131,14 +131,32 @@
 }
 
 .hero-brand {
-  margin: 0.7rem 0 0;
+  margin: 0;
   color: var(--text-strong);
   font-family: var(--font-display);
   font-size: clamp(3.7rem, 8.4vw, 6.9rem);
   font-style: italic;
   line-height: 0.88;
   letter-spacing: -0.06em;
+}
+
+.hero-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.6vw, 1.2rem);
+  margin: 0.7rem 0 0;
   animation-delay: 160ms;
+}
+
+.hero-app-icon {
+  flex: 0 0 auto;
+  width: clamp(3.25rem, 6.8vw, 5.6rem);
+  height: clamp(3.25rem, 6.8vw, 5.6rem);
+  border-radius: 22.5%;
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .hero-title {

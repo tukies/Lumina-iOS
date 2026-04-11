@@ -234,7 +234,17 @@ function App() {
           <div className="hero-layout">
             <div className="hero-copy">
               <p className="hero-kicker">Spatial, audio-reactive lighting studio for iPhone, iPad, and Mac</p>
-              <p className="hero-brand">Lumina</p>
+              <div className="hero-brand-lockup">
+                <img
+                  className="hero-app-icon"
+                  src={media('lumina-icon.png')}
+                  alt=""
+                  width="512"
+                  height="512"
+                  aria-hidden="true"
+                />
+                <p className="hero-brand">Lumina</p>
+              </div>
               <h1 className="hero-title">Light the room like it means something.</h1>
               <p className="hero-subtitle">
                 Lumina brings spatial control, audio-reactive motion, and beautifully composed effects
