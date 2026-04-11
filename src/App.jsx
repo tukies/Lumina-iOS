@@ -202,18 +202,7 @@ function App() {
 
   return (
     <div className="site-shell">
-      <LiquidGlass
-        className="global-nav-glass"
-        style={{ position: 'fixed', top: '30px', left: '50%', zIndex: 30 }}
-        padding="0px"
-        cornerRadius={999}
-        blurAmount={0.08}
-        saturation={162}
-        displacementScale={68}
-        aberrationIntensity={2}
-        elasticity={0.18}
-        mode="standard"
-      >
+      <div className="global-nav-glass">
         <div className="nav-pill">
           <a className="nav-brand" href="#top" aria-label="Lumina home">
             Lumina
@@ -227,7 +216,7 @@ function App() {
             <a href={privacyHref}>Privacy</a>
           </nav>
         </div>
-      </LiquidGlass>
+      </div>
 
       <main id="top">
         <section className="hero-section">

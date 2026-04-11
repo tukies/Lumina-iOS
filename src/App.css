@@ -36,7 +36,6 @@
     radial-gradient(circle at 68% 28%, rgba(255, 201, 118, 0.14) 0%, rgba(255, 201, 118, 0) 52%);
 }
 
-.global-nav-glass .glass,
 .hero-console .glass {
   border: 1px solid rgba(255, 255, 255, 0.14);
   background:
@@ -47,12 +46,23 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
-.global-nav-glass .glass {
+.global-nav-glass {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  z-index: 30;
   width: min(calc(100vw - 28px), 860px);
-}
-
-.global-nav-glass > :not(.glass) {
-  display: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.03)),
+    rgba(10, 14, 24, 0.62);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(22px) saturate(162%);
+  -webkit-backdrop-filter: blur(22px) saturate(162%);
+  transform: translateX(-50%);
 }
 
 .nav-pill {
@@ -987,7 +997,12 @@
 
 @media (max-width: 780px) {
   .global-nav-glass {
-    top: 18px !important;
+    top: 18px;
+    right: 14px;
+    left: 14px;
+    width: auto;
+    border-radius: 24px;
+    transform: none;
   }
 
   .nav-pill {
