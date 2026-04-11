@@ -1,5 +1,8 @@
 import './App.css'
 
+const baseUrl = import.meta.env.BASE_URL
+const media = (fileName) => `${baseUrl}media/${fileName}`
+
 const metrics = [
   { value: '17', label: 'Signature motion looks tuned for mood, tempo, and contrast.' },
   { value: '4', label: 'Major lighting ecosystems controlled from one visual workspace.' },
@@ -153,7 +156,12 @@ const setupSteps = [
   'Recall the right atmosphere for focus, hosting, or late-night listening.',
 ]
 
-const heroSystems = ['WLED', 'Hue', 'Nanoleaf', 'LIFX']
+const heroSystems = [
+  { label: 'WLED', logo: 'wled-logo.png' },
+  { label: 'Philips Hue', logo: 'philipshue-logo.svg' },
+  { label: 'Nanoleaf', logo: 'nanoleaf-logo.png', logoWide: true },
+  { label: 'LIFX', logo: 'lifx-logo.svg', logoWide: true },
+]
 
 const consoleSignals = [
   { label: 'Scene building', value: 'Spatial mapping, gradients, favorites, and saved looks.' },
@@ -171,7 +179,22 @@ function HeroConsole() {
 
         <div className="hero-console-systems" aria-label="Supported systems">
           {heroSystems.map((system) => (
-            <span key={system}>{system}</span>
+            <span
+              className={`hero-console-system-badge${
+                system.logoWide ? ' hero-console-system-badge--wide' : ''
+              }`}
+              key={system.label}
+              role="img"
+              aria-label={system.label}
+            >
+              <img
+                src={media(system.logo)}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                aria-hidden="true"
+              />
+            </span>
           ))}
         </div>
 
@@ -189,8 +212,6 @@ function HeroConsole() {
 }
 
 function App() {
-  const baseUrl = import.meta.env.BASE_URL
-  const media = (fileName) => `${baseUrl}media/${fileName}`
   const privacyHref = `${baseUrl}privacy/`
 
   return (
