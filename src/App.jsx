@@ -270,6 +270,7 @@ function App() {
                 </div>
 
                 <div className="device-stack">
+                  <div className="stage-rainbow-glow" aria-hidden="true" />
                   <figure className="device-frame device-frame--primary">
                     <img
                       src={media('spatial-rainbow.jpg')}

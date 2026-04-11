@@ -297,6 +297,43 @@
   height: 100%;
 }
 
+.stage-rainbow-glow {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  z-index: 1;
+  width: min(22rem, 34vw);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(
+    from 24deg,
+    rgba(255, 88, 88, 0.68),
+    rgba(255, 181, 84, 0.64),
+    rgba(224, 255, 112, 0.6),
+    rgba(108, 255, 186, 0.62),
+    rgba(83, 219, 255, 0.64),
+    rgba(130, 145, 255, 0.66),
+    rgba(218, 112, 255, 0.64),
+    rgba(255, 104, 190, 0.66),
+    rgba(255, 88, 88, 0.68)
+  );
+  filter: blur(46px) saturate(300%);
+  mix-blend-mode: screen;
+  opacity: 0.72;
+  animation: rainbow-glow-breathe 9s ease-in-out infinite;
+}
+
+.stage-rainbow-glow::after {
+  content: '';
+  position: absolute;
+  inset: 17%;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0) 72%);
+  opacity: 0.56;
+}
+
 .device-frame {
   position: absolute;
   margin: 0;
@@ -782,6 +819,19 @@
   }
 }
 
+@keyframes rainbow-glow-breathe {
+  0%,
+  100% {
+    opacity: 0.62;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+
+  50% {
+    opacity: 0.84;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+}
+
 @media (max-width: 1180px) {
   .hero-layout,
   .support-layout,
@@ -810,12 +860,10 @@
     min-height: 41rem;
   }
 
-  .device-frame--secondary {
-    left: 8%;
-  }
-
-  .device-frame--tertiary {
-    right: 7%;
+  .stage-rainbow-glow {
+    top: 59%;
+    width: min(24rem, 62vw);
+    filter: blur(42px) saturate(200%);
   }
 
   .highlight-grid,
@@ -866,6 +914,12 @@
   .hero-stage-frame {
     min-height: 34rem;
     padding: 1rem;
+  }
+
+  .stage-rainbow-glow {
+    top: 60%;
+    width: min(21.5rem, 74vw);
+    filter: blur(37px) saturate(128%);
   }
 
   .device-frame {
@@ -950,6 +1004,12 @@
 
   .device-frame--primary {
     width: min(15.5rem, 52vw);
+  }
+
+  .stage-rainbow-glow {
+    top: 61%;
+    width: min(19rem, 82vw);
+    opacity: 0.66;
   }
 
   .hero-console-systems {
