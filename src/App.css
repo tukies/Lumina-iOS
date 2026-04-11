@@ -769,6 +769,8 @@
 }
 
 .workflow-column {
+  min-width: 0;
+  overflow: hidden;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   content-visibility: auto;
@@ -780,8 +782,19 @@
 }
 
 .workflow-media {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   margin-top: 1.35rem;
-  min-height: 31rem;
+  height: 31rem;
+  min-height: 0;
+}
+
+.workflow-media img {
+  width: auto;
+  max-width: 100%;
+  height: calc(31rem - 2.3rem);
+  max-height: 100%;
 }
 
 .systems-layout {
@@ -1206,7 +1219,11 @@
   }
 
   .workflow-media {
-    min-height: 26rem;
+    height: clamp(18rem, 78vw, 26rem);
+  }
+
+  .workflow-media img {
+    height: calc(clamp(18rem, 78vw, 26rem) - 2.3rem);
   }
 
   .integration-row {
@@ -1281,6 +1298,14 @@
   .workflow-media {
     padding: 0.85rem;
     border-radius: 1.5rem;
+  }
+
+  .workflow-media {
+    height: clamp(17rem, 112vw, 22rem);
+  }
+
+  .workflow-media img {
+    height: calc(clamp(17rem, 112vw, 22rem) - 1.7rem);
   }
 }
 
