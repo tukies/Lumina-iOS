@@ -256,9 +256,9 @@ function App() {
                 <a className="primary-button" href="#overview">
                   Explore Lumina
                 </a>
-                <a className="secondary-button" href="https://github.com/tukies/Lumina-iOS">
-                  View on GitHub
-                </a>
+                <button className="coming-soon-button" type="button" aria-disabled="true">
+                  <span>Coming soon</span>
+                </button>
               </div>
 
               <ul className="hero-facts" aria-label="Product highlights">
@@ -453,9 +453,9 @@ function App() {
               <a className="primary-button" href={privacyHref}>
                 Read privacy policy
               </a>
-              <a className="secondary-button" href="https://github.com/tukies/Lumina-iOS">
-                Open repository
-              </a>
+              <button className="coming-soon-button" type="button" aria-disabled="true">
+                <span>Coming soon</span>
+              </button>
             </div>
           </div>
         </section>
