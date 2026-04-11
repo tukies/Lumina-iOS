@@ -163,10 +163,38 @@
   animation-delay: 160ms;
 }
 
-.hero-app-icon {
+.hero-app-icon-shell {
+  position: relative;
   flex: 0 0 auto;
   width: clamp(3.25rem, 6.8vw, 5.6rem);
   height: clamp(3.25rem, 6.8vw, 5.6rem);
+  border-radius: 22.5%;
+  isolation: isolate;
+}
+
+.hero-app-icon-shell::before {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  z-index: -1;
+  border-radius: 999px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 34% 42%, rgba(224, 151, 32, 0.72), rgba(224, 151, 32, 0) 42%),
+    radial-gradient(circle at 57% 34%, rgba(255, 75, 166, 0.62), rgba(255, 75, 166, 0) 44%),
+    radial-gradient(circle at 66% 62%, rgba(17, 53, 139, 0.78), rgba(17, 53, 139, 0) 48%);
+  filter: blur(22px) saturate(180%);
+  mix-blend-mode: screen;
+  opacity: 0.72;
+  animation: icon-glow-breathe 7.5s ease-in-out infinite;
+}
+
+.hero-app-icon {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
   border-radius: 22.5%;
   box-shadow:
     0 16px 34px rgba(0, 0, 0, 0.34),
@@ -813,6 +841,15 @@
   margin-top: 0;
 }
 
+.trademark-note {
+  width: min(1180px, calc(100% - 56px));
+  margin: 2rem auto 0;
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 0.72rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
 .primary-button,
 .secondary-button,
 .coming-soon-button {
@@ -987,6 +1024,19 @@
   50% {
     opacity: 0.84;
     transform: translate(-50%, -50%) scale(1.06);
+  }
+}
+
+@keyframes icon-glow-breathe {
+  0%,
+  100% {
+    opacity: 0.58;
+    transform: scale(0.92) rotate(-8deg);
+  }
+
+  50% {
+    opacity: 0.84;
+    transform: scale(1.08) rotate(8deg);
   }
 }
 

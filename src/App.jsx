@@ -238,14 +238,15 @@ function App() {
             <div className="hero-copy">
               <p className="hero-kicker">Spatial, audio-reactive lighting studio for iPhone, iPad, and Mac</p>
               <div className="hero-brand-lockup">
-                <img
-                  className="hero-app-icon"
-                  src={media('lumina-icon.png')}
-                  alt=""
-                  width="512"
-                  height="512"
-                  aria-hidden="true"
-                />
+                <span className="hero-app-icon-shell" aria-hidden="true">
+                  <img
+                    className="hero-app-icon"
+                    src={media('lumina-icon.png')}
+                    alt=""
+                    width="512"
+                    height="512"
+                  />
+                </span>
                 <p className="hero-brand">Lumina</p>
               </div>
               <h1 className="hero-title">Light the room like it means something.</h1>
@@ -477,6 +478,11 @@ function App() {
               </button>
             </div>
           </div>
+
+          <p className="trademark-note">
+            WLED, Philips Hue, Nanoleaf, and LIFX names and marks belong to their respective owners.
+            Lumina is not affiliated with, endorsed by, or sponsored by those companies.
+          </p>
         </section>
       </main>
     </div>
