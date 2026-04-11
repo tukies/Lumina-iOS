@@ -1,4 +1,4 @@
-# Lumina Website
+# Lumina Website -> https://tukies.github.io/Lumina-iOS/
 
 Marketing site for Lumina, built with React and Vite, deployed through GitHub Pages.
 
