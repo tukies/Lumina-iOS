@@ -26,6 +26,10 @@
 }
 
 html {
+  min-width: 100%;
+  min-height: 100%;
+  background: var(--bg-deep);
+  color-scheme: dark;
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
 }
@@ -34,11 +38,14 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  min-height: 100dvh;
   color: var(--text-strong);
   background:
     radial-gradient(circle at top, rgba(255, 255, 255, 0.07), transparent 28%),
     radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.04), transparent 30%),
     linear-gradient(180deg, var(--bg) 0%, #060606 42%, var(--bg-deep) 100%);
+  background-color: var(--bg-deep);
+  overscroll-behavior: none;
 }
 
 body::before {
@@ -73,6 +80,8 @@ a {
 
 #root {
   min-height: 100vh;
+  min-height: 100dvh;
+  background: transparent;
 }
 
 ::selection {

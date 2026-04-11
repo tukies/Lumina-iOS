@@ -2,7 +2,10 @@
   position: relative;
   isolation: isolate;
   width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: clip;
+  background: transparent;
 }
 
 .site-shell::before,
