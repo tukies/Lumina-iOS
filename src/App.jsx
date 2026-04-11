@@ -1,5 +1,3 @@
-import { useRef } from 'react'
-import LiquidGlass from 'liquid-glass-react'
 import './App.css'
 
 const metrics = [
@@ -158,17 +156,7 @@ const consoleSignals = [
 
 function HeroConsole() {
   return (
-    <LiquidGlass
-      className="hero-console"
-      padding="0px"
-      cornerRadius={34}
-      blurAmount={0.075}
-      saturation={168}
-      displacementScale={74}
-      aberrationIntensity={2}
-      elasticity={0.22}
-      mode="standard"
-    >
+    <div className="hero-console">
       <div className="hero-console-body">
         <div className="hero-console-heading">
           <p>Creative control</p>
@@ -190,12 +178,11 @@ function HeroConsole() {
           ))}
         </div>
       </div>
-    </LiquidGlass>
+    </div>
   )
 }
 
 function App() {
-  const heroStageRef = useRef(null)
   const baseUrl = import.meta.env.BASE_URL
   const media = (fileName) => `${baseUrl}media/${fileName}`
   const privacyHref = `${baseUrl}privacy/`
@@ -258,7 +245,7 @@ function App() {
               </ul>
             </div>
 
-            <div className="hero-stage" aria-label="Lumina interface preview" ref={heroStageRef}>
+            <div className="hero-stage" aria-label="Lumina interface preview">
               <div className="hero-stage-frame">
                 <div className="stage-halo" aria-hidden="true" />
                 <div className="stage-grid" aria-hidden="true" />

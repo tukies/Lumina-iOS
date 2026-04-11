@@ -36,8 +36,9 @@
     radial-gradient(circle at 68% 28%, rgba(255, 201, 118, 0.14) 0%, rgba(255, 201, 118, 0) 52%);
 }
 
-.hero-console .glass {
+.hero-console {
   border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 34px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.03)),
     rgba(10, 14, 24, 0.24);
@@ -249,11 +250,6 @@
   isolation: isolate;
 }
 
-/* LiquidGlass injects helper siblings around .hero-console; hide them in this layout. */
-.hero-stage > :not(.hero-stage-frame):not(.hero-console) {
-  display: none !important;
-}
-
 .hero-stage-frame {
   position: relative;
   min-height: 30rem;
@@ -426,9 +422,9 @@
   width: min(100%, 60rem);
   align-self: center;
   margin-top: 0;
-  top: auto !important;
-  left: auto !important;
-  transform: none !important;
+  overflow: hidden;
+  backdrop-filter: blur(18px) saturate(168%);
+  -webkit-backdrop-filter: blur(18px) saturate(168%);
 }
 
 .hero-console-body {
