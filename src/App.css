@@ -98,7 +98,7 @@
   display: grid;
   grid-template-columns: minmax(320px, 0.92fr) minmax(440px, 1.08fr);
   gap: clamp(3rem, 6vw, 6rem);
-  align-items: end;
+  align-items: start;
   width: min(1280px, calc(100% - 56px));
   margin: 0 auto;
 }
@@ -210,15 +210,23 @@
 
 .hero-stage {
   position: relative;
-  min-height: 37rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
   isolation: isolate;
+}
+
+/* LiquidGlass injects helper siblings around .hero-console; hide them in this layout. */
+.hero-stage > :not(.hero-stage-frame):not(.hero-console) {
+  display: none !important;
 }
 
 .hero-stage-frame {
   position: relative;
-  min-height: 37rem;
+  min-height: 30rem;
   overflow: hidden;
-  padding: 1.15rem 1.15rem 5.4rem;
+  padding: 1.15rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 2.6rem;
   background:
@@ -256,9 +264,12 @@
 }
 
 .stage-copy {
-  position: relative;
+  position: absolute;
+  top: 1.15rem;
+  left: 1.15rem;
   z-index: 4;
   max-width: 16rem;
+  pointer-events: none;
 }
 
 .stage-copy p {
@@ -282,7 +293,7 @@
 .device-stack {
   position: relative;
   width: 100%;
-  min-height: 28rem;
+  min-height: 21rem;
   height: 100%;
 }
 
@@ -307,9 +318,7 @@
   height: auto;
 }
 
-.device-frame--primary,
-.device-frame--secondary,
-.device-frame--tertiary {
+.device-frame--primary {
   animation: frame-float 11s ease-in-out infinite;
 }
 
@@ -317,27 +326,9 @@
   top: 2.4rem;
   left: 50%;
   z-index: 3;
-  width: min(16.5rem, 24vw);
+  width: min(18.5rem, 27vw);
   transform: translateX(-50%) rotate(4deg);
   animation-delay: 0ms;
-}
-
-.device-frame--secondary {
-  top: 6.4rem;
-  left: 5%;
-  z-index: 2;
-  width: min(8.2rem, 13vw);
-  transform: rotate(-14deg);
-  animation-delay: -3s;
-}
-
-.device-frame--tertiary {
-  top: 3.8rem;
-  right: 4%;
-  z-index: 4;
-  width: min(9.4rem, 14vw);
-  transform: rotate(10deg);
-  animation-delay: -6s;
 }
 
 .hero-console-body {
@@ -361,14 +352,20 @@
 }
 
 .hero-console {
-  --console-top: 76%;
-  --console-left: 50%;
+  position: relative;
+  z-index: 6;
+  width: min(100%, 60rem);
+  align-self: center;
+  margin-top: 0;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
 }
 
 .hero-console-body {
   display: grid;
   gap: 0.9rem;
-  width: min(27rem, 39vw);
+  width: 100%;
   padding: 0.85rem 0.9rem 0.9rem;
 }
 
@@ -821,10 +818,6 @@
     right: 7%;
   }
 
-  .hero-console {
-    --console-top: 84%;
-  }
-
   .highlight-grid,
   .workflow-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -872,7 +865,7 @@
 
   .hero-stage-frame {
     min-height: 34rem;
-    padding: 1rem 1rem 6.6rem;
+    padding: 1rem;
   }
 
   .device-frame {
@@ -880,24 +873,7 @@
   }
 
   .device-frame--primary {
-    width: min(15.5rem, 43vw);
-  }
-
-  .device-frame--secondary {
-    top: 8rem;
-    left: 2%;
-    width: min(8.8rem, 26vw);
-  }
-
-  .device-frame--tertiary {
-    top: 5.8rem;
-    right: 1%;
-    width: min(10rem, 29vw);
-  }
-
-  .hero-console {
-    --console-top: 83%;
-    --console-left: 50%;
+    width: min(17.5rem, 48vw);
   }
 
   .hero-console-body {
@@ -962,7 +938,6 @@
 
   .hero-stage-frame {
     min-height: 30rem;
-    padding-bottom: 6.2rem;
   }
 
   .stage-copy {
@@ -974,20 +949,7 @@
   }
 
   .device-frame--primary {
-    width: min(13.75rem, 48vw);
-  }
-
-  .device-frame--secondary {
-    top: 8.5rem;
-    width: min(7.2rem, 27vw);
-  }
-
-  .device-frame--tertiary {
-    display: none;
-  }
-
-  .hero-console {
-    --console-top: 82%;
+    width: min(15.5rem, 52vw);
   }
 
   .hero-console-systems {

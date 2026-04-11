@@ -156,12 +156,10 @@ const consoleSignals = [
   { label: 'Audio tuning', value: 'Live BPM, energy, and frequency-band response.' },
 ]
 
-function HeroConsole({ containerRef }) {
+function HeroConsole() {
   return (
     <LiquidGlass
       className="hero-console"
-      mouseContainer={containerRef}
-      style={{ position: 'absolute', top: 'var(--console-top)', left: 'var(--console-left)', zIndex: 6 }}
       padding="0px"
       cornerRadius={34}
       blurAmount={0.075}
@@ -272,17 +270,6 @@ function App() {
                 </div>
 
                 <div className="device-stack">
-                  <figure className="device-frame device-frame--secondary">
-                    <img
-                      src={media('effects-library.jpg')}
-                      alt="Lumina effect library showing visual presets."
-                      width="587"
-                      height="1200"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </figure>
-
                   <figure className="device-frame device-frame--primary">
                     <img
                       src={media('spatial-rainbow.jpg')}
@@ -294,21 +281,10 @@ function App() {
                       decoding="sync"
                     />
                   </figure>
-
-                  <figure className="device-frame device-frame--tertiary">
-                    <img
-                      src={media('audio-calibration.jpg')}
-                      alt="Lumina audio calibration interface with live diagnostics."
-                      width="1083"
-                      height="1200"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </figure>
                 </div>
-
-                <HeroConsole containerRef={heroStageRef} />
               </div>
+
+              <HeroConsole />
             </div>
           </div>
         </section>
