@@ -136,6 +136,39 @@ const workflows = [
   },
 ]
 
+const demoVideos = [
+  {
+    eyebrow: 'Chill live',
+    title: 'Settle into a slower scene.',
+    body: 'A calmer live look for ambient sessions, late-night rooms, and low-pressure listening.',
+    video: {
+      src: 'chill_live.mp4',
+      type: 'video/mp4',
+      poster: 'chill_live-poster.jpg',
+    },
+  },
+  {
+    eyebrow: 'POV live',
+    title: 'See the room from the listener’s seat.',
+    body: 'A real-space view of the scene changing around the room instead of just inside the app.',
+    video: {
+      src: 'pov_live.mp4',
+      type: 'video/mp4',
+      poster: 'pov_live-poster.jpg',
+    },
+  },
+  {
+    eyebrow: 'Vertical live',
+    title: 'Watch the mobile flow in motion.',
+    body: 'A vertical capture for the app experience, from visual control to responsive lighting.',
+    video: {
+      src: 'vertical_live.mp4',
+      type: 'video/mp4',
+      poster: 'vertical_live-poster.jpg',
+    },
+  },
+]
+
 const integrations = [
   {
     name: 'WLED',
@@ -292,6 +325,7 @@ function App() {
           <nav className="nav-links" aria-label="Primary">
             <a href="#overview">Overview</a>
             <a href="#features">Detail</a>
+            <a href="#live-demo">Live Demo</a>
             <a href="#workflows">Workflow</a>
             <a href="#systems">Systems</a>
             <a href="#updates">Updates</a>
@@ -441,6 +475,43 @@ function App() {
                         <li key={point}>{point}</li>
                       ))}
                     </ul>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="demo-section" id="live-demo">
+          <div className="section-shell section-shell-wide">
+            <div className="section-intro">
+              <p className="section-kicker">Live Demo</p>
+              <h2 className="section-title">Watch the room change as the scene takes shape.</h2>
+              <p className="section-copy">
+                Live demos show Lumina in the room: map the space, choose the look, and tune motion
+                while the lights respond in real time.
+              </p>
+            </div>
+
+            <div className="demo-grid" aria-label="Lumina demo videos">
+              {demoVideos.map((demo) => (
+                <article className="demo-item" key={demo.title}>
+                  <figure className="demo-video-frame">
+                    <video
+                      controls
+                      playsInline
+                      preload="metadata"
+                      poster={media(demo.video.poster)}
+                      aria-label={demo.title}
+                    >
+                      <source src={media(demo.video.src)} type={demo.video.type} />
+                    </video>
+                  </figure>
+
+                  <div className="demo-copy">
+                    <p className="item-eyebrow">{demo.eyebrow}</p>
+                    <h3>{demo.title}</h3>
+                    <p>{demo.body}</p>
                   </div>
                 </article>
               ))}

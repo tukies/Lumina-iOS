@@ -252,6 +252,7 @@
 .highlight-item p:last-child,
 .story-copy p,
 .story-copy li,
+.demo-copy p:last-child,
 .workflow-column p,
 .integration-row p,
 .setup-list li,
@@ -759,6 +760,63 @@
   padding-left: 1.1rem;
 }
 
+.demo-section {
+  position: relative;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.demo-item {
+  min-width: 0;
+  content-visibility: auto;
+  contain-intrinsic-size: 620px;
+}
+
+.demo-video-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 9 / 16;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.1), transparent 34%),
+    rgba(5, 5, 5, 0.9);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+}
+
+.demo-video-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #050505;
+  object-fit: contain;
+}
+
+.demo-copy {
+  padding-top: 1.15rem;
+}
+
+.demo-copy h3 {
+  margin: 0.7rem 0 0;
+  color: var(--text-strong);
+  font-size: clamp(1.32rem, 2.1vw, 1.92rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.demo-copy p:last-child {
+  margin: 0.85rem 0 0;
+}
+
 .story-copy li + li,
 .setup-list li + li {
   margin-top: 0.6rem;
@@ -1166,6 +1224,7 @@
   }
 
   .highlight-grid,
+  .demo-grid,
   .workflow-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1254,6 +1313,7 @@
 
   .metric-grid,
   .highlight-grid,
+  .demo-grid,
   .workflow-columns {
     grid-template-columns: 1fr;
   }
