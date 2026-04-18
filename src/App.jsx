@@ -138,9 +138,9 @@ const workflows = [
 
 const demoVideos = [
   {
-    eyebrow: 'Chill live',
-    title: 'Settle into a slower scene.',
-    body: 'A calmer live look for ambient sessions, late-night rooms, and low-pressure listening.',
+    eyebrow: 'Room and iPad',
+    title: 'Spatial map driving.',
+    body: "The iPad shows Lumina's room map while the pixels shift through the mapped color field.",
     video: {
       src: 'chill_live.mp4',
       type: 'video/mp4',
@@ -148,9 +148,9 @@ const demoVideos = [
     },
   },
   {
-    eyebrow: 'POV live',
-    title: 'See the room from the listener’s seat.',
-    body: 'A real-space view of the scene changing around the room instead of just inside the app.',
+    eyebrow: 'Handheld POV',
+    title: 'Live room sweep with Lumina on iPad.',
+    body: 'Full creative control.',
     video: {
       src: 'pov_live.mp4',
       type: 'video/mp4',
@@ -158,9 +158,9 @@ const demoVideos = [
     },
   },
   {
-    eyebrow: 'Vertical live',
-    title: 'Watch the mobile flow in motion.',
-    body: 'A vertical capture for the app experience, from visual control to responsive lighting.',
+    eyebrow: 'Fixed room view',
+    title: 'All my lights work together',
+    body: 'Horizontal laser effect with rainbow gradient override.',
     video: {
       src: 'vertical_live.mp4',
       type: 'video/mp4',
