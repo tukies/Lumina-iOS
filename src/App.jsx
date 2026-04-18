@@ -328,9 +328,9 @@ function App() {
                 <a className="primary-button" href="#overview">
                   Explore Lumina
                 </a>
-                <button className="coming-soon-button" type="button" aria-disabled="true">
+                <a className="coming-soon-button" href="#updates">
                   <span>Coming soon</span>
-                </button>
+                </a>
               </div>
 
               <ul className="hero-facts" aria-label="Product highlights">
@@ -543,9 +543,9 @@ function App() {
               <a className="primary-button" href={privacyHref}>
                 Read privacy policy
               </a>
-              <button className="coming-soon-button" type="button" aria-disabled="true">
+              <a className="coming-soon-button" href="#updates">
                 <span>Coming soon</span>
-              </button>
+              </a>
             </div>
           </div>
 
