@@ -1,7 +1,19 @@
+import { useEffect } from 'react'
 import './App.css'
 
 const baseUrl = import.meta.env.BASE_URL
 const media = (fileName) => `${baseUrl}media/${fileName}`
+
+const beehiivScripts = [
+  {
+    id: 'beehiiv-embed-script',
+    src: 'https://subscribe-forms.beehiiv.com/embed.js',
+  },
+  {
+    id: 'beehiiv-attribution-script',
+    src: 'https://subscribe-forms.beehiiv.com/attribution.js',
+  },
+]
 
 const metrics = [
   { value: '17', label: 'Signature motion looks tuned for mood, tempo, and contrast.' },
@@ -211,6 +223,61 @@ function HeroConsole() {
   )
 }
 
+function BeehiivSignup() {
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      beehiivScripts.forEach(({ id, src }) => {
+        if (document.getElementById(id)) {
+          return
+        }
+
+        const script = document.createElement('script')
+        script.id = id
+        script.async = true
+        script.src = src
+        script.type = 'text/javascript'
+        document.body.appendChild(script)
+      })
+    })
+
+    return () => window.cancelAnimationFrame(frame)
+  }, [])
+
+  return (
+    <section className="newsletter-section" id="updates">
+      <div className="section-shell newsletter-layout">
+        <div className="section-intro newsletter-copy">
+          <p className="section-kicker">Launch updates</p>
+          <h2 className="section-title">Know when Lumina is ready.</h2>
+          <p className="section-copy">
+            Get release notes, TestFlight openings, and launch updates in your inbox.
+          </p>
+        </div>
+
+        <div className="newsletter-embed-shell">
+          <iframe
+            src="https://subscribe-forms.beehiiv.com/0bb35cce-0cc6-4304-98ea-7c04dcf5addd"
+            className="beehiiv-embed"
+            data-test-id="beehiiv-embed"
+            title="Subscribe to Lumina launch updates"
+            frameBorder="0"
+            scrolling="no"
+            style={{
+              width: '665px',
+              height: '211px',
+              margin: 0,
+              borderRadius: '50px',
+              backgroundColor: 'transparent',
+              boxShadow: '0 0 #0000',
+              maxWidth: '100%',
+            }}
+          />
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function App() {
   const privacyHref = `${baseUrl}privacy/`
 
@@ -227,6 +294,7 @@ function App() {
             <a href="#features">Detail</a>
             <a href="#workflows">Workflow</a>
             <a href="#systems">Systems</a>
+            <a href="#updates">Updates</a>
             <a href={privacyHref}>Privacy</a>
           </nav>
         </div>
@@ -456,6 +524,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <BeehiivSignup />
 
         <section className="closing-section">
           <div className="section-shell closing-band">
