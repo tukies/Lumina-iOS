@@ -133,6 +133,7 @@
 .hero-title,
 .hero-subtitle,
 .cta-row,
+.availability-note,
 .hero-facts {
   opacity: 0;
   animation: fade-lift 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -276,6 +277,17 @@
   animation-delay: 400ms;
 }
 
+.availability-note {
+  max-width: 30rem;
+  margin: 0.8rem 0 0;
+  color: var(--text-strong);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.45;
+  animation-delay: 460ms;
+}
+
 .hero-facts {
   display: flex;
   flex-wrap: wrap;
@@ -283,7 +295,7 @@
   margin: 1.1rem 0 0;
   padding: 0;
   list-style: none;
-  animation-delay: 480ms;
+  animation-delay: 540ms;
 }
 
 .hero-facts li {
@@ -1023,7 +1035,7 @@
   position: relative;
   overflow: hidden;
   color: #050505;
-  cursor: default;
+  cursor: pointer;
   isolation: isolate;
   background: conic-gradient(
     from 24deg,

@@ -3,6 +3,7 @@ import './App.css'
 
 const baseUrl = import.meta.env.BASE_URL
 const media = (fileName) => `${baseUrl}media/${fileName}`
+const appStoreHref = 'https://apps.apple.com/us/app/lumina-spatial-light-dj/id6760628430'
 
 const beehiivScripts = [
   {
@@ -280,10 +281,10 @@ function BeehiivSignup() {
     <section className="newsletter-section" id="updates">
       <div className="section-shell newsletter-layout">
         <div className="section-intro newsletter-copy">
-          <p className="section-kicker">Launch updates</p>
-          <h2 className="section-title">Know when Lumina is ready.</h2>
+          <p className="section-kicker">Product updates</p>
+          <h2 className="section-title">Stay close to what is next for Lumina.</h2>
           <p className="section-copy">
-            Get release notes, TestFlight openings, and launch updates in your inbox.
+            Get release notes, feature updates, and TestFlight openings in your inbox.
           </p>
         </div>
 
@@ -292,7 +293,7 @@ function BeehiivSignup() {
             src="https://subscribe-forms.beehiiv.com/0bb35cce-0cc6-4304-98ea-7c04dcf5addd"
             className="beehiiv-embed"
             data-test-id="beehiiv-embed"
-            title="Subscribe to Lumina launch updates"
+            title="Subscribe to Lumina product updates"
             frameBorder="0"
             scrolling="no"
             style={{
@@ -362,10 +363,19 @@ function App() {
                 <a className="primary-button" href="#overview">
                   Explore Lumina
                 </a>
-                <a className="coming-soon-button" href="#updates">
-                  <span>Coming soon</span>
+                <a
+                  className="coming-soon-button"
+                  href={appStoreHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>Download on the App Store</span>
                 </a>
               </div>
+
+              <p className="availability-note">
+                Available now on the App Store for iPhone, iPad, and Mac.
+              </p>
 
               <ul className="hero-facts" aria-label="Product highlights">
                 <li>Spatial room mapping</li>
@@ -614,8 +624,13 @@ function App() {
               <a className="primary-button" href={privacyHref}>
                 Read privacy policy
               </a>
-              <a className="coming-soon-button" href="#updates">
-                <span>Coming soon</span>
+              <a
+                className="coming-soon-button"
+                href={appStoreHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Download on the App Store</span>
               </a>
             </div>
           </div>
