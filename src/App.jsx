@@ -156,6 +156,7 @@ const demoVideos = [
       src: 'pov_live.mp4',
       type: 'video/mp4',
       poster: 'pov_live-poster.jpg',
+      orientation: 'landscape',
     },
   },
   {
@@ -166,6 +167,7 @@ const demoVideos = [
       src: 'vertical_live.mp4',
       type: 'video/mp4',
       poster: 'vertical_live-poster.jpg',
+      orientation: 'landscape',
     },
   },
 ]
@@ -213,6 +215,66 @@ const consoleSignals = [
   { label: 'Scene building', value: 'Spatial mapping, gradients, favorites, and saved looks.' },
   { label: 'Audio tuning', value: 'Live BPM, energy, and frequency-band response.' },
 ]
+
+const ambientLights = [
+  { tone: 'magenta', rhythm: 'a', x: '3%', y: '12%', size: '22rem', duration: '7.4s', delay: '-1.1s' },
+  { tone: 'cyan', rhythm: 'b', x: '72%', y: '18%', size: '27rem', duration: '9.2s', delay: '-4.6s' },
+  { tone: 'amber', rhythm: 'c', x: '15%', y: '78%', size: '24rem', duration: '8.1s', delay: '-2.7s' },
+  { tone: 'green', rhythm: 'a', x: '88%', y: '82%', size: '29rem', duration: '10.4s', delay: '-6.1s' },
+  { tone: 'violet', rhythm: 'b', x: '31%', y: '38%', size: '24rem', duration: '8.8s', delay: '-3.9s' },
+  { tone: 'rose', rhythm: 'c', x: '78%', y: '55%', size: '23rem', duration: '7.6s', delay: '-5.8s' },
+  { tone: 'cyan', rhythm: 'a', x: '8%', y: '52%', size: '20rem', duration: '11.3s', delay: '-7.2s' },
+  { tone: 'amber', rhythm: 'b', x: '92%', y: '31%', size: '22rem', duration: '9.7s', delay: '-1.6s' },
+  { tone: 'magenta', rhythm: 'c', x: '48%', y: '88%', size: '22rem', duration: '12.1s', delay: '-9.4s' },
+  { tone: 'green', rhythm: 'a', x: '54%', y: '7%', size: '19rem', duration: '8.6s', delay: '-4.3s' },
+  { tone: 'violet', rhythm: 'b', x: '16%', y: '27%', size: '18rem', duration: '10.8s', delay: '-8.5s' },
+  { tone: 'cyan', rhythm: 'c', x: '62%', y: '66%', size: '23rem', duration: '9.4s', delay: '-3.4s' },
+  { tone: 'rose', rhythm: 'a', x: '27%', y: '92%', size: '18rem', duration: '11.8s', delay: '-10.2s' },
+  { tone: 'amber', rhythm: 'b', x: '74%', y: '4%', size: '17rem', duration: '8.9s', delay: '-6.8s' },
+]
+
+const ambientBeams = [
+  { tone: 'magenta', rhythm: 'a', x: '-16rem', y: '22%', rotate: '-18deg', duration: '14s', delay: '-2.4s' },
+  { tone: 'cyan', rhythm: 'b', x: '58%', y: '36%', rotate: '22deg', duration: '17s', delay: '-10s' },
+  { tone: 'amber', rhythm: 'c', x: '5%', y: '72%', rotate: '16deg', duration: '15.5s', delay: '-6.2s' },
+  { tone: 'violet', rhythm: 'a', x: '56%', y: '84%', rotate: '-24deg', duration: '18s', delay: '-12.6s' },
+  { tone: 'green', rhythm: 'b', x: '2%', y: '48%', rotate: '26deg', duration: '16.4s', delay: '-4.8s' },
+  { tone: 'rose', rhythm: 'c', x: '54%', y: '12%', rotate: '-14deg', duration: '19s', delay: '-14.2s' },
+  { tone: 'cyan', rhythm: 'a', x: '-10rem', y: '91%', rotate: '19deg', duration: '17.8s', delay: '-7.5s' },
+]
+
+function AmbientLightField() {
+  return (
+    <div className="ambient-light-field" aria-hidden="true">
+      {ambientLights.map((light, index) => (
+        <span
+          className={`ambient-light ambient-light--${light.tone} ambient-light--${light.rhythm}`}
+          key={`${light.tone}-${light.y}-${index}`}
+          style={{
+            '--light-x': light.x,
+            '--light-y': light.y,
+            '--light-size': light.size,
+            '--light-duration': light.duration,
+            '--light-delay': light.delay,
+          }}
+        />
+      ))}
+      {ambientBeams.map((beam, index) => (
+        <span
+          className={`ambient-beam ambient-beam--${beam.tone} ambient-beam--${beam.rhythm}`}
+          key={`${beam.tone}-${beam.y}-${index}`}
+          style={{
+            '--beam-x': beam.x,
+            '--beam-y': beam.y,
+            '--beam-rotate': beam.rotate,
+            '--beam-duration': beam.duration,
+            '--beam-delay': beam.delay,
+          }}
+        />
+      ))}
+    </div>
+  )
+}
 
 function HeroConsole() {
   return (
@@ -317,6 +379,7 @@ function App() {
 
   return (
     <div className="site-shell">
+      <AmbientLightField />
       <div className="global-nav-glass">
         <div className="nav-pill">
           <a className="nav-brand" href="#top" aria-label="Lumina home">
@@ -339,7 +402,9 @@ function App() {
         <section className="hero-section">
           <div className="hero-layout">
             <div className="hero-copy">
-              <p className="hero-kicker">Spatial, audio-reactive lighting studio for iPhone, iPad, and Mac</p>
+              <p className="hero-kicker">
+                Spatial, audio-reactive lighting studio for iPhone and iPad. macOS coming soon.
+              </p>
               <div className="hero-brand-lockup">
                 <span className="hero-app-icon-shell" aria-hidden="true">
                   <img
@@ -374,7 +439,7 @@ function App() {
               </div>
 
               <p className="availability-note">
-                Available now on the App Store for iPhone, iPad, and Mac.
+                Available now on the App Store for iPhone and iPad. macOS coming soon.
               </p>
 
               <ul className="hero-facts" aria-label="Product highlights">
@@ -506,7 +571,9 @@ function App() {
             <div className="demo-grid" aria-label="Lumina demo videos">
               {demoVideos.map((demo) => (
                 <article className="demo-item" key={demo.title}>
-                  <figure className="demo-video-frame">
+                  <figure
+                    className={`demo-video-frame demo-video-frame--${demo.video.orientation || 'portrait'}`}
+                  >
                     <video
                       controls
                       playsInline
