@@ -4,14 +4,17 @@ This document describes the current Lumina marketing website as implemented in `
 
 ## Product Position
 
-Lumina is presented as a spatial, audio-reactive lighting studio for iPhone and iPad, with macOS noted as coming soon. The site should feel like a creative control surface for a room, not like a generic smart-home landing page.
+Lumina is presented as a version 1.1 spatial, audio-reactive lighting studio for iPhone and iPad, with macOS noted as coming soon. The hero stays spatial-first, while the release story introduces Flow, Wave Studio, Performance Pad, room memory, Govee LAN-compatible devices, and opt-in iCloud sync.
 
 The main promise is:
 
 - Shape a room visually through spatial mapping.
-- Choose polished lighting looks without digging through utility controls.
+- Use Flow to turn music into spatial motion, rhythm, and atmosphere.
+- Shape motion and energy through Wave Studio.
+- Trigger live cues through Performance Pad.
 - Tune audio-reactive motion with real-time diagnostics.
-- Control WLED, Philips Hue Entertainment, Nanoleaf, and LIFX from one local-network workflow.
+- Control WLED, Philips Hue Entertainment Areas, Nanoleaf, LIFX, and Govee LAN-compatible devices from one local-network workflow.
+- Keep saved rooms and scenes local by default, with iCloud sync only when the user enables it.
 
 Copy should stay confident, concrete, and product-led. Avoid vague claims like "next-generation" unless the page immediately grounds them in room mapping, effects, audio analysis, scenes, or supported systems.
 
@@ -22,23 +25,25 @@ The site is a single-page React/Vite marketing site with a privacy page under `p
 Primary navigation:
 
 - Overview
-- Detail
+- Flow
 - Live Demo
 - Workflow
 - Systems
-- Updates
+- Community
 - Privacy
 
 Main homepage sections:
 
 1. Hero: product lockup, App Store CTA, core positioning, staged app preview, supported-system console.
 2. Overview: metric cards and four feature highlights.
-3. Detail: three alternating story bands for Spatial stage, Effect library, and Audio tuning.
-4. Live Demo: three video demos using real room footage.
-5. Workflow: three columns for map, choose, tune.
-6. Systems: supported ecosystems and setup flow.
-7. Updates: Beehiiv signup embed.
-8. Closing: privacy/local-control positioning and repeated App Store CTA.
+3. Version 1.1: Flow, Wave Studio, and Performance Pad panels.
+4. Flow: story bands for Spatial stage, Effect library, Scenes, Audio tuning, and Rooms.
+5. Live Demo: three video demos using real room footage.
+6. Workflow: three columns for map, start Flow, and tune response.
+7. Systems: supported ecosystems and setup flow.
+8. Lumina Pro: compact feature grid for the full creative toolkit.
+9. Community: Discord invite CTA and official Discord widget frame.
+10. Closing: local-by-default and opt-in sync positioning with repeated App Store CTA.
 
 ## Visual Direction
 
@@ -110,7 +115,7 @@ Layout patterns:
 - Overview uses intro plus metric grid, followed by highlight grid.
 - Story bands use media and copy side-by-side with alternating order.
 - Demo and workflow sections use three-column grids on desktop.
-- Systems and newsletter sections use two-column grids.
+- Systems and community sections use two-column grids.
 - Below `1180px`, major multi-column layouts collapse to one column.
 - Below `780px`, card grids become single-column.
 
@@ -164,6 +169,10 @@ Story bands are the main product explanation surface. They pair actual screensho
 
 Media should stay sticky on desktop and static on smaller screens. Each story should explain a concrete workflow, not just repeat the hero promise.
 
+### Version 1.1 Panels
+
+The 1.1 section uses three screenshot-led panels for Flow, Wave Studio, and Performance Pad. These panels should feel like release highlights, not a separate app or pricing surface.
+
 ### Demo Videos
 
 Demo videos are direct evidence that Lumina affects real rooms. They use standard controls, metadata preload, posters, and contained object fit.
@@ -174,13 +183,17 @@ Keep video cards simple. The footage should carry the section.
 
 Supported systems are presented as rows with white logo badges and short descriptions. Logos sit on bright shells so vendor marks remain legible against the dark page.
 
+Govee is presented as `Govee LAN` or `Govee LAN-compatible devices` because device support depends on model, firmware, and local LAN availability. Do not imply universal Govee support.
+
 Do not imply official endorsement. The existing trademark note should remain visible near the bottom of the page.
 
-### Updates Embed
+### Lumina Pro
 
-The Updates section embeds Beehiiv directly. The iframe is styled to blend into the dark page while preserving Beehiiv's form surface.
+The Pro section is a compact feature grid, not a pricing page. It should mention full Spatial effects, all 49 Flow patterns, Performance Pad effects, Wave Studio Early Access, background audio sync, automatic calibration, export/share, opt-in iCloud sync, and gradient persistence.
 
-Because the iframe is cross-origin, do not promise precise on-site signup conversion tracking from the website itself. Signup counts belong in Beehiiv.
+### Community Embed
+
+The Community section links to the Lumina Discord server and uses Discord's official widget iframe. Keep the CTA direct, community-oriented, and framed as a place for scene sharing, Flow setup discussion, release notes, and feedback.
 
 ## Motion
 
@@ -208,6 +221,15 @@ Primary media lives in `public/media/`.
 Current key assets:
 
 - `lumina-icon.png`
+- `v1-1/spatial-lighting.jpg`
+- `v1-1/effect-library.jpg`
+- `v1-1/flow-mode.jpg`
+- `v1-1/integrations.jpg`
+- `v1-1/wave-studio.jpg`
+- `v1-1/audio-calibration.jpg`
+- `v1-1/scene-library.jpg`
+- `v1-1/performance-pad.jpg`
+- `v1-1/rooms.jpg`
 - `spatial-rainbow.jpg`
 - `spatial-ripple.jpg`
 - `effects-library.jpg`
@@ -216,7 +238,7 @@ Current key assets:
 - `pov_live.mp4`
 - `vertical_live.mp4`
 - Matching video poster images
-- WLED, Philips Hue, Nanoleaf, and LIFX logos
+- WLED, Philips Hue, Nanoleaf, LIFX, and Govee logos
 
 Use real app screenshots and room footage whenever possible. Abstract illustrations are a weaker fit for this site.
 
@@ -226,7 +248,7 @@ Existing practices to preserve:
 
 - Meaningful `alt` text for app screenshots.
 - Decorative logos/images hidden with empty `alt` and `aria-hidden` where appropriate.
-- Named iframe title for Beehiiv.
+- Named iframe title for the Discord community widget.
 - Visible focus outlines for nav and buttons.
 - `content-visibility: auto` on heavier repeated sections.
 - Lazy loading for below-the-fold images.
@@ -240,15 +262,19 @@ When adding media, define dimensions where possible and avoid layout shift.
 Use this language direction:
 
 - "Spatial stage" for room mapping.
+- "Flow" for continuous music-reactive motion.
+- "Wave Studio" for shaping motion, color, timing, and energy.
+- "Performance Pad" for live cues.
 - "Effect library" for choosing looks.
 - "Audio tuning" for reactive diagnostics.
 - "Local-network control" for privacy and responsiveness.
-- "Supported systems" or "systems" for WLED, Philips Hue Entertainment, Nanoleaf, and LIFX.
+- "Opt-in iCloud sync" or "iCloud sync only when enabled" for sync language.
+- "Supported systems" or "systems" for WLED, Philips Hue Entertainment Areas, Nanoleaf, LIFX, and Govee LAN-compatible devices.
 
 Avoid:
 
 - Overstating affiliation with lighting brands.
-- Claiming cloud sync or cloud control unless the product page is updated to support it.
+- Implying iCloud sync is automatic, required, or used without explicit user opt-in.
 - Hiding the app availability state. Lumina is currently presented as available on the App Store for iPhone and iPad, with macOS coming soon.
 - Generic smart-home phrasing that undersells the creative/music-reactive angle.
 

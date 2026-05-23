@@ -161,12 +161,13 @@
         </div>
       </a>
 
-      <p class="eyebrow">Last updated: 18 April 2026</p>
+      <p class="eyebrow">Last updated: 23 May 2026</p>
       <h1>Privacy policy written for how the app actually works.</h1>
       <p class="intro">
         Lumina is designed to keep as much data as possible on your device and local network. It uses
         microphone input for real-time audio analysis, stores room setups and scenes locally, and
-        communicates directly with the lighting hardware you choose to connect.
+        communicates directly with the lighting hardware you choose to connect. If you enable iCloud
+        sync, selected saved app content can sync through Apple iCloud.
       </p>
 
       <section class="summary">
@@ -174,7 +175,11 @@
         <ul>
           <li>Microphone access is used to analyse audio in real time for lighting response.</li>
           <li>Lighting control happens across your local network with supported devices and bridges.</li>
-          <li>Room configuration, scenes, gradients, settings, and mappings are stored locally.</li>
+          <li>
+            Room configuration, scenes, gradients, settings, and mappings are stored locally by
+            default.
+          </li>
+          <li>iCloud sync is optional and only used when you choose to enable it.</li>
           <li>Philips Hue bridge credentials are stored in Apple Keychain on your device.</li>
           <li>Lumina does not include third-party advertising SDKs.</li>
           <li>Lumina does not send analytics or marketing profiles to external analytics services.</li>
@@ -199,6 +204,20 @@
           Lumina also stores room layouts, scenes, sequences, custom gradients, lighting settings,
           calibration values, background preferences, and audio-input selections locally so your setup
           can be restored between sessions.
+        </p>
+      </section>
+
+      <section>
+        <h2>Optional iCloud sync</h2>
+        <p>
+          Lumina’s saved setup data stays local by default. If you choose to enable iCloud sync,
+          selected saved content such as room layouts, scenes, gradients, settings, and related
+          ordering information may be synced through Apple iCloud so it can be available on your
+          devices.
+        </p>
+        <p>
+          iCloud sync is opt-in. Lumina does not require iCloud sync for local light control, and
+          lighting hardware credentials remain separate from the saved app content sync path.
         </p>
       </section>
 
@@ -270,7 +289,8 @@
         <h2>Third-party ecosystems and your rights</h2>
         <p>
           Lumina works with third-party hardware and ecosystems such as WLED, Philips Hue, Nanoleaf,
-          and LIFX. Your use of those services is also subject to their own privacy policies and terms.
+          LIFX, and Govee LAN-compatible devices. Your use of those services is also subject to their
+          own privacy policies and terms.
         </p>
         <p>
           Depending on where you live, including under U.K. GDPR or similar laws, you may have rights
