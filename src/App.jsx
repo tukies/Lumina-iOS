@@ -44,7 +44,7 @@ const highlights = [
 const releasePanels = [
   {
     eyebrow: 'Flow',
-    title: 'A new public music-reactive engine.',
+    title: 'Music-reactive lighting that moves through the room.',
     body:
       'Choose from 49 spatial patterns that respond to beat detection, musical energy, fixture mapping, and cover-art-inspired palettes.',
     image: {
@@ -204,8 +204,8 @@ const workflows = [
 const demoVideos = [
   {
     eyebrow: 'Room and iPad',
-    title: 'Spatial map driving.',
-    body: "The iPad shows Lumina's room map while the pixels shift through the mapped color field.",
+    title: 'Lumina driving rainbow plasma lights.',
+    body: 'An iPad running Lumina controls real lights as the room shifts through a rainbow plasma effect.',
     video: {
       src: 'chill_live.mp4',
       type: 'video/mp4',
@@ -215,7 +215,7 @@ const demoVideos = [
   {
     eyebrow: 'Handheld POV',
     title: 'Live room sweep with Lumina on iPad.',
-    body: 'Full creative control.',
+    body: 'Tune the show while it is running.',
     video: {
       src: 'pov_live.mp4',
       type: 'video/mp4',
@@ -225,8 +225,8 @@ const demoVideos = [
   },
   {
     eyebrow: 'Fixed room view',
-    title: 'All my lights work together',
-    body: 'Horizontal laser effect with rainbow gradient override.',
+    title: 'Rainbow laser effect across the room.',
+    body: 'A fixed room view of Lumina sending a horizontal rainbow laser effect through the lights.',
     video: {
       src: 'vertical_live.mp4',
       type: 'video/mp4',
@@ -477,7 +477,7 @@ function App() {
           <div className="hero-layout">
             <div className="hero-copy">
               <p className="hero-kicker">
-                Version 1.1 spatial lighting studio for iPhone and iPad. macOS coming soon.
+                Spatial Light DJ for iPhone and iPad.
               </p>
               <div className="hero-brand-lockup">
                 <span className="hero-app-icon-shell" aria-hidden="true">
@@ -491,11 +491,10 @@ function App() {
                 </span>
                 <p className="hero-brand">Lumina</p>
               </div>
-              <h1 className="hero-title">Map the room. Let the music move it.</h1>
+              <h1 className="hero-title">From smart lights to stage lights.</h1>
               <p className="hero-subtitle">
-                Place bulbs, strips, panels, and fixtures on a live room map, then use Flow, Wave
-                Studio, and Performance Pad to turn tracks into coordinated color, motion, rhythm,
-                and atmosphere.
+                Map your room once, then let Flow, Wave Studio, and Performance Pad turn every
+                track into coordinated color, motion, and rhythm.
               </p>
 
               <div className="cta-row">
@@ -513,7 +512,7 @@ function App() {
               </div>
 
               <p className="availability-note">
-                Available now on the App Store for iPhone and iPad. macOS coming soon.
+                Version 1.1 is available now on the App Store. macOS coming soon.
               </p>
 
               <ul className="hero-facts" aria-label="Product highlights">
@@ -559,7 +558,7 @@ function App() {
           <div className="section-shell support-layout">
             <div className="section-intro support-intro">
               <p className="section-kicker">Overview</p>
-              <h2 className="section-title">A lighting studio instead of a pile of presets.</h2>
+              <h2 className="section-title">Stop picking presets. Start directing the room.</h2>
               <p className="section-copy">
                 Most smart-light apps stop at utility. Lumina 1.1 is built for rooms where lighting
                 should feel mapped, musical, responsive, and ready to perform.
@@ -628,7 +627,7 @@ function App() {
           <div className="section-shell section-shell-wide">
             <div className="section-intro align-left">
               <p className="section-kicker">Flow</p>
-              <h2 className="section-title">Built to move from layout to atmosphere without friction.</h2>
+              <h2 className="section-title">Map the room, then make it react to the music.</h2>
               <p className="section-copy">
                 From room mapping to effect selection, Flow, scenes, and audio tuning, Lumina keeps
                 the process visual and fluid so shaping the atmosphere feels quick and deliberate.
@@ -742,7 +741,7 @@ function App() {
           <div className="section-shell systems-layout">
             <div className="systems-copy">
               <p className="section-kicker align-left">Systems</p>
-              <h2 className="section-title align-left">One control surface for the whole room.</h2>
+              <h2 className="section-title align-left">One app for every light in the room.</h2>
               <p className="section-copy align-left">
                 If your setup spans more than one brand, Lumina brings everything into one place so
                 the room behaves like a single experience instead of a stack of separate apps.
@@ -791,7 +790,7 @@ function App() {
           <div className="section-shell pro-layout">
             <div className="section-intro pro-copy">
               <p className="section-kicker">Lumina Pro</p>
-              <h2 className="section-title">The full toolkit for larger rooms.</h2>
+              <h2 className="section-title">Everything you need for bigger light shows.</h2>
               <p className="section-copy">
                 Unlock the complete creative set for serious smart-light setups, from the full Flow
                 library and Performance Pad effects to Wave Studio Early Access and opt-in iCloud sync.
