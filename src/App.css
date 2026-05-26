@@ -666,6 +666,14 @@
   padding-inline: 0.56rem;
 }
 
+.hero-console-system-badge--mark,
+.integration-logo-shell--mark {
+  color: #050505;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
 .hero-console-system-badge img {
   display: block;
   width: 100%;
@@ -817,6 +825,67 @@
 .workflow-column p,
 .integration-row p {
   margin: 0.85rem 0 0;
+}
+
+.release-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.release-panel {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.075), transparent 26%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.018)),
+    rgba(7, 7, 7, 0.76);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.26);
+  content-visibility: auto;
+  contain-intrinsic-size: 700px;
+}
+
+.release-media {
+  display: grid;
+  place-items: center;
+  height: 28rem;
+  margin: 0;
+  padding: 1rem 1rem 0;
+  overflow: hidden;
+}
+
+.release-media img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 1.45rem;
+  background: #050505;
+  box-shadow: 0 24px 58px rgba(0, 0, 0, 0.38);
+}
+
+.release-copy {
+  padding: 1.25rem 1.25rem 1.4rem;
+}
+
+.release-copy h3 {
+  margin: 0.7rem 0 0;
+  color: var(--text-strong);
+  font-size: clamp(1.32rem, 2.1vw, 1.92rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.release-copy p:last-child {
+  margin: 0.85rem 0 0;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.64;
 }
 
 .story-list {
@@ -1068,11 +1137,46 @@
   margin: 0;
 }
 
-.newsletter-section {
+.pro-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+  padding-top: 2.5rem;
+}
+
+.pro-copy {
+  margin: 0;
+  text-align: left;
+}
+
+.pro-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.pro-feature {
+  display: flex;
+  min-height: 4.1rem;
+  align-items: center;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.1rem;
+  color: var(--text-soft);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018)),
+    rgba(8, 8, 8, 0.7);
+  font-size: 0.96rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.community-section {
   position: relative;
 }
 
-.newsletter-layout {
+.community-layout {
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(320px, 1.18fr);
   gap: clamp(2rem, 4vw, 4rem);
@@ -1080,24 +1184,32 @@
   padding-top: 2.5rem;
 }
 
-.newsletter-copy {
+.community-copy {
   margin: 0;
   text-align: left;
 }
 
-.newsletter-embed-shell {
+.community-actions {
+  margin-top: 1.45rem;
+}
+
+.discord-widget-shell {
   display: flex;
   justify-content: flex-end;
   min-width: 0;
 }
 
-.beehiiv-embed {
+.discord-widget {
   display: block;
-  border: 0;
-  border-radius: 50px !important;
-  background-color: transparent;
-  box-shadow: 0 0 #0000;
+  width: min(100%, 35rem);
+  height: 31.25rem;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.7rem;
+  background:
+    radial-gradient(circle at top left, rgba(88, 101, 242, 0.24), transparent 34%),
+    rgba(7, 7, 7, 0.82);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
 }
 
 .closing-section {
@@ -1470,7 +1582,8 @@
   .hero-layout,
   .support-layout,
   .systems-layout,
-  .newsletter-layout,
+  .community-layout,
+  .pro-layout,
   .story-band,
   .story-band:nth-child(even) {
     grid-template-columns: 1fr;
@@ -1502,6 +1615,7 @@
   }
 
   .highlight-grid,
+  .release-grid,
   .demo-grid,
   .workflow-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1522,7 +1636,7 @@
     max-width: none;
   }
 
-  .newsletter-embed-shell {
+  .discord-widget-shell {
     justify-content: flex-start;
   }
 }
@@ -1569,7 +1683,7 @@
   }
 
   .hero-brand {
-    font-size: clamp(4.6rem, 22vw, 6.2rem);
+    font-size: clamp(3.35rem, 15vw, 4.6rem);
   }
 
   .hero-app-icon-shell {
@@ -1615,9 +1729,15 @@
 
   .metric-grid,
   .highlight-grid,
+  .release-grid,
   .demo-grid,
-  .workflow-columns {
+  .workflow-columns,
+  .pro-feature-grid {
     grid-template-columns: 1fr;
+  }
+
+  .release-media {
+    height: clamp(24rem, 112vw, 34rem);
   }
 
   .workflow-media {
@@ -1633,16 +1753,17 @@
     gap: 0.65rem;
   }
 
-  .newsletter-layout {
+  .community-layout {
     padding-top: 1.5rem;
   }
 
-  .newsletter-embed-shell {
+  .discord-widget-shell {
     justify-content: center;
   }
 
-  .beehiiv-embed {
-    width: 100% !important;
+  .discord-widget {
+    width: 100%;
+    height: 31.25rem;
   }
 
   .closing-band {
